@@ -18,7 +18,7 @@ if os.path.exists(f'yaml/{field}.yaml'):
     with open(f'yaml/{field}.yaml') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 else:
-    with open('config.yaml') as f:
+    with open('yaml/config.yaml') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 field_info = config[database]
 for t in field_info.get('meta', []):

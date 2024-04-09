@@ -4,6 +4,7 @@ from utils import *
 
 df_papers, df_authors, df_paper_author, df_paper_author_filtered, top_authors = create_top()
 path_to_mapping = f"out/{field}/csv"
+authorID_list = top_authors['authorID'].tolist()
 
 MIN_STUDENT_AUTHOR_ORDER = 3
 print("Pre-compute first author maps!", datetime.now().strftime("%H:%M:%S"))

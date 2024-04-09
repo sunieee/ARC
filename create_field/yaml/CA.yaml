@@ -1,0 +1,68 @@
+scigene_CA_field:
+  meta:
+  - fieldName: Computer architecture & hardware
+  - shortFieldName: CA
+  - topScholarNum: 20000
+  field:
+  - Computer hardware
+  - Computer architecture
+  - Embedded system
+  - Parallel computing
+  - Distributed computing
+  journal:
+  - ACM Transactions on Storage
+  - IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+  - ACM Transactions on Computer Systems
+  - ACM Transactions on Architecture and Code Optimization
+  - ACM Transactions on Autonomous and Adaptive Systems
+  - ACM Transactions on Design Automation of Electronic Systems
+  - IEEE Transactions on Very Large Scale Integration Systems
+  - The Journal of Supercomputing
+  - Journal of Electronic Testing
+  - IEEE Transactions on Computers
+  - IEEE Transactions on Parallel and Distributed Systems
+  - ACM Transactions on Embedded Computing Systems
+  - ACM Transactions on Reconfigurable Technology and Systems
+  - Journal of Parallel and Distributed Computing
+  - Journal of Systems Architecture
+  - Parallel Computing
+  - Performance Evaluation
+  - "Concurrency and Computation: Practice and Experience"
+  - Distributed Computing
+  - IEEE Transactions on Cloud Computing
+  - Journal of Grid computing
+  conference:
+  - USENIX Annual Technical Conference
+  - File and Storage Technologies
+  - Design Automation Conference
+  - High-Performance Computer Architecture
+  - International Symposium on Microarchitecture
+  - Conference on High Performance Computing (Supercomputing)
+  - Architectural Support for Programming Languages and Operating Systems
+  - International Symposium on Computer Architecture
+  - Field Programmable Gate Arrays
+  - Symposium on Code Generation and Optimization
+  - Design, Automation, and Test in Europe
+  - "Hot Chips : A Symposium High-Performance Chips"
+  - International Conference on Computer Design
+  - International Conference on Computer Aided Design
+  - International Conference on Hardware/Software Codesign and System Synthesis
+  - International Conference on Parallel Architectures and Compilation Techniques
+  - International Conference on Supercomputing
+  - Mass Storage Systems and Technologies
+  - PPoPP_ACM SIGPLAN Symposium on Principles & Practice of Parallel Programming
+  - EuroSys_European Conference on Computer Systems
+  - SoCC_ACM Symposium on Cloud Computing
+  - SPAA_ACM Symposium on Parallelism in Algorithms and Architectures
+  - PODC_ACM Symposium on Principles of Distributed Computing
+  - CLUSTER_IEEE International Conference on Cluster Computing
+  - ICDCS_IEEE International Conference on Distributed Computing Systems
+  - HiPEAC_International Conference on High Performance and Embedded Architectures and Compilers
+  - ICPP_International Conference on Parallel Processing
+  - IPDPS_IEEE International Parallel & Distributed Processing Symposium
+  - HPDC_The International ACM Symposium on High-Performance Parallel and Distributed Computing
+  - RTAS_IEEE Real-Time and Embedded Technology and Applications Symposium
+  - Euro-Par_European Conference on Parallel and Distributed Computing
+  - ISPA_IEEE International Symposium on Parallel and Distributed Processing with Applications
+  - CCGRID_IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing
+  - ICPADS_International Conference on Parallel and Distributed Systems

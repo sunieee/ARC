@@ -1,6 +1,6 @@
 export user=root
 export password=root
-export field=ACMfellow
+export field=fellowVSNon
 # export database=AI
 export scholar=1
 
@@ -26,3 +26,4 @@ python analyse_distribution.py | tee out/$field/log/analyse_distribution.log
 # rsync -a --progress=info2 out/fellowTuring/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/turing/
 # rsync -a --progress=info2 out/turing/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/turing/
 # rsync -a --progress=info2 out/ACMfellow/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/ACMfellow/
+# rsync -a --progress=info2 out/fellowVSNon/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/fellowVSNon/

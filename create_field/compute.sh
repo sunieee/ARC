@@ -37,11 +37,11 @@ compute() {
 # compute VCG
 # compute visualization
 # compute CG
-compute AI
+# compute AI
 # compute SE
 # compute HCI
 # compute CN
-
+compute CA
 
 
 # rsync -a output xiaofengli@120.55.163.114:/home/xiaofengli/pyCode/GFVis/csv/ --progress=info2

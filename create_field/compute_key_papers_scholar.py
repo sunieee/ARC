@@ -14,8 +14,10 @@ paperID2year = df_papers.set_index('paperID')['year'].to_dict()
 
 authorID2yearCountMap = {}
 coAuthorID2yearCountMap = {}
+batch_size = 500
 
 def getAuthorYearCountMap(authorID, conn):
+    # 2024.3.9 注意这个函数有概率卡主，当paperID_list数量超过1000时，select ... from papers会卡主！必须分batch
     if authorID in authorID2yearCountMap:
         return authorID2yearCountMap[authorID]
     #
@@ -27,12 +29,13 @@ def getAuthorYearCountMap(authorID, conn):
         # renew paperID2year, add new paperID
         paperID_list = [x for x in df['paperID'].tolist() if x not in paperID2year]
         if len(paperID_list):
-            paperID_str = ','.join([f'\'{x}\'' for x in paperID_list])
-            papers = pd.read_sql_query(f"select paperID, PublicationDate from papers where paperID in ({paperID_str})", conn)
-            papers['PublicationDate'] = pd.to_datetime(papers['PublicationDate'], errors='coerce')
-            for paper_id, publication_date in zip(papers['paperID'], papers['PublicationDate']):
-                if paper_id not in paperID2year:
-                    paperID2year[paper_id] = publication_date.year if pd.notna(publication_date) else 0
+            for i in range(0, len(paperID_list), batch_size):
+                paperID_str = ','.join([f'\'{x}\'' for x in paperID_list[i:i+batch_size]])
+                papers = pd.read_sql_query(f"select paperID, PublicationDate from papers where paperID in ({paperID_str})", conn)
+                papers['PublicationDate'] = pd.to_datetime(papers['PublicationDate'], errors='coerce')
+                for paper_id, publication_date in zip(papers['paperID'], papers['PublicationDate']):
+                    if paper_id not in paperID2year:
+                        paperID2year[paper_id] = publication_date.year if pd.notna(publication_date) else 0
     else:
         df = df_paper_author[df_paper_author['authorID'] == authorID]
     #
@@ -54,8 +57,12 @@ def getCoAuthorYearCountMap(coAuthorID, conn):
     #
     studentID, supervisorID = coAuthorID.split('-')
     paperID_list = df_paper_author[df_paper_author['authorID'] == supervisorID]['paperID'].tolist()
-    paperID_str = ','.join([f'\'{x}\'' for x in paperID_list])
-    df = pd.read_sql_query(f"select * from paper_author where authorID='{studentID}' and paperID in ({paperID_str})", conn)
+    dfs = []
+    for i in range(0, len(paperID_list), batch_size):
+        paperID_str = ','.join([f'\'{x}\'' for x in paperID_list[i:i+batch_size]])
+        df = pd.read_sql_query(f"select * from paper_author where authorID='{studentID}' and paperID in ({paperID_str})", conn)
+        dfs.append(df)
+    df = pd.concat(dfs)
     #
     for index, row in df.iterrows():
         paperID = row['paperID']
@@ -218,18 +225,19 @@ def build_top_author(authorID):
         return
     print('## ' + authorID)
     conn, cursor = create_connection()
-
     # Filter out rows from df_paper_author for the specific authorID
     df_paper_author_author = df_paper_author[df_paper_author['authorID'] == authorID]
+    # print('df_paper_author_author', len(df_paper_author_author))
     df = df_papers.merge(df_paper_author_author, on="paperID").groupby(['paperID', 'title', 'year']).agg({
         'authorOrder': 'min'
     }).reset_index()
+    print('df', len(df))
     df['isKeyPaper'] = 0.0
-
     # Get the first author ID for each paper
     paperID_list = df['paperID'].tolist()
     if paperID_list:
         paperID_str = ','.join([f'\'{x}\'' for x in paperID_list])
+        # print('Get first author ID', len(paperID_list))
         cursor.execute(f"select paperID, authorID from paper_author where authorOrder = 1 and paperID in ({paperID_str})")
         paperID2FirstAuthorID = dict(cursor.fetchall())
         df['firstAuthorID'] = df['paperID'].map(paperID2FirstAuthorID)
@@ -238,6 +246,7 @@ def build_top_author(authorID):
 
     # Process the DataFrame
     for i, row in df.iterrows():
+        print('### ' + row['paperID'])
         if pd.isna(row['firstAuthorID']):
             authorOrder = int(row['authorOrder'])
             print('Target paper does not have first author!', row['paperID'], authorOrder)
@@ -246,6 +255,7 @@ def build_top_author(authorID):
             if row['firstAuthorID'] == authorID:
                 isKeyPaper = 1
             else:
+                # print('Compute supervisor rate', toStr(row['firstAuthorID']), authorID, int(row['year']))
                 isKeyPaper = compute_supervisor_rate(toStr(row['firstAuthorID']), authorID, int(row['year']), conn)
         df.at[i, 'isKeyPaper'] = isKeyPaper
         print(row['paperID'], isKeyPaper)
@@ -255,9 +265,12 @@ def build_top_author(authorID):
     conn.close()
 
 
-os.makedirs(f'out/{field}/papers_raw', exist_ok=True)
-with multiprocessing.Pool(processes=multiprocess_num) as pool:
-    pool.map(build_top_author, authorID_list)
+# os.makedirs(f'out/{field}/papers_raw', exist_ok=True)
+# with multiprocessing.Pool(processes=multiprocess_num) as pool:
+#     pool.map(build_top_author, authorID_list)
+
+for authorID in authorID_list:
+    build_top_author(authorID)
 
 
 with open(f'{path}/authorID2yearCountMap.json', 'w') as f:

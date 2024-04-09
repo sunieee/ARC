@@ -48,15 +48,16 @@ paperIDs = set(df_paper_author_filtered['paperID'].to_list())
 df_papers = df_papers[df_papers['paperID'].isin(paperIDs)]
 
 print('load map from file!', datetime.now().strftime("%H:%M:%S"))
-with open(f'{path_to_mapping}/paperCountMap.json') as f:
-    paperCountMap = json.load(f)
-with open(f'{path_to_mapping}/weightedPaperCountMap.json') as f:
-    weightedPaperCountMap = json.load(f)
-with open(f'{path_to_mapping}/coWeightedPaperCountMap.json') as f:
-    coWeightedPaperCountMap = json.load(f)
-with open(f'{path_to_mapping}/coPaperCountMap.json') as f:
-    coPaperCountMap = json.load(f)
+def loadMap(name):
+    # load the map from file, IMPORTANT: convert the key to int
+    with open(f'{path_to_mapping}/{name}.json') as f:
+        m = json.load(f)
+        return {k: {int(kk): vv for kk, vv in v.items()} for k, v in m.items()}
 
+paperCountMap = loadMap('paperCountMap')
+weightedPaperCountMap = loadMap('weightedPaperCountMap')
+coWeightedPaperCountMap = loadMap('coWeightedPaperCountMap')
+coPaperCountMap = loadMap('coPaperCountMap')
 
 MIN_SUPERVISOR_RATE = 0.3
 MIN_SUPERVISED_RATE = 1
@@ -134,6 +135,7 @@ def compute_supervisor_rate(studentID, supervisorID, year):
         return 0.0
     student_academic_years = sorted(list(paperCountMap[studentID].keys()))[: MAX_ACADEMIC_YEAR + 1]
     if not (year in student_academic_years):
+        print(year, 'not found in student_academic_years!', paperCountMap[studentID].keys())
         return 0.0
     #
     yearIndex = student_academic_years.index(year)
@@ -202,7 +204,7 @@ def compute_supervisor_rate(studentID, supervisorID, year):
         supervisingRate = numerator / denominator
     #
     supervisingRate = min(1.0, supervisingRate / MIN_SUPERVISING_RATE)
-    # print(paperID, student_academic_years, maxSupervisedRate * supervisingRate)
+    # print(coAuthorID, student_academic_years, maxSupervisedRate, supervisingRate)
     return maxSupervisedRate * supervisingRate
 
 
@@ -254,9 +256,10 @@ def build_top_author(pairs):
                 if row['firstAuthorID'] == authorID:
                     isKeyPaper = 1
                 else:
+                    print(row['firstAuthorID'], authorID, int(row['year']))
                     isKeyPaper = compute_supervisor_rate(toStr(row['firstAuthorID']), authorID, int(row['year']))
+                    print(row['paperID'], isKeyPaper)
             df.at[i, 'isKeyPaper'] = isKeyPaper
-            print(row['paperID'], isKeyPaper)
 
         df.to_csv(f'out/{field}/papers_raw/{authorID}.csv', index=False)
 
