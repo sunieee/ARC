@@ -1,0 +1,5 @@
+# Ignore all directories in out/
+out/*
+
+# Do not ignore files in out/
+!out/*.py

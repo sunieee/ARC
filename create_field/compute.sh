@@ -52,4 +52,4 @@ compute CA
 # rsync -a --progress=info2 out/ACMfellowTuring/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/ACMfellowTuring/
 # rsync -a --progress=info2 out/VCG/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/VCG/
 
-rsync -a --progress=info2 root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/AI/{links,papers,top_field_authors.csv} out/AI/
+# rsync -a --progress=info2 root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/AI/{links,papers,top_field_authors.csv} out/AI/

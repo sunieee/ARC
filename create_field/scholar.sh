@@ -1,6 +1,15 @@
+echo "waiting for extract to finish"
+
+# 每隔一分钟检查一次进程是否仍在运行，输出一条消息，直到 Python 脚本结束
+while pgrep -f extractNonFellow.py > /dev/null; do
+  echo "The script is still running..."
+  sleep 60
+done
+echo "start scholar.sh"
+
 export user=root
 export password=root
-export field=fellowVSNon
+export field=fellows
 # export database=AI
 export scholar=1
 
@@ -27,3 +36,9 @@ python analyse_distribution.py | tee out/$field/log/analyse_distribution.log
 # rsync -a --progress=info2 out/turing/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/turing/
 # rsync -a --progress=info2 out/ACMfellow/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/ACMfellow/
 # rsync -a --progress=info2 out/fellowVSNon/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/fellowVSNon/
+# rsync -a --progress=info2 out/fellows/{links,papers,top_field_authors.csv} root@82.156.152.182:/home/xfl/pyCode/GFVisTest/csv/fellows/
+
+
+# cd /home/sy/GFVis/csv/fellows
+# cp /home/xl/GeneFlow/topicAutoSimple/output/fellows/{paperID2topic.json,paperIDDistribution.csv,field_leaves.csv,field_roots.csv} .
+# cp -r /home/sy/MAGProcessing/create_field/out/fellows/{links,papers,top_field_authors.csv} .
