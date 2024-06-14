@@ -2,11 +2,11 @@ import pandas as pd
 from tqdm import tqdm
 
 file = 'fellow'
-folder = 'fellows'
+folder = 'fellowV3'
 df = pd.read_csv(f'{folder}/{file}CS.csv', dtype={'authorID': str})
 unique_authors = df['original'].unique().tolist()
 
-df = df[df['CSPaperRatio'] >= 0.45]
+df = df[df['CSPaperRatio'] >= 0.88]
 # original 为空('')的，用name填充
 df.loc[df['original'] == '', 'original'] = df.loc[df['original'] == '', 'name']
 df.loc[df['original'].isnull(), 'original'] = df.loc[df['original'].isnull(), 'name']

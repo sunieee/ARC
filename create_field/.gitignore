@@ -3,3 +3,4 @@ out/*
 
 # Do not ignore files in out/
 !out/*.py
+!out/README.md

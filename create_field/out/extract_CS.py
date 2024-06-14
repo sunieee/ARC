@@ -3,6 +3,7 @@ import pandas as pd
 from tqdm import tqdm
 import json
 import re
+import os
 
 # 连接数据库
 def create_connection(database='MACG'):
@@ -53,11 +54,23 @@ def find_all_descendants(parent_id):
     recurse(parent_id)
     return descendants
 
+reject_subfields = set(['44870925', '1276947', '51244244'])
+# new_reject_subfields = set()
+# for s in reject_subfields:
+#     t = find_all_descendants(s)
+#     new_reject_subfields.update(t)
+#     print(s, len(t))
+# reject_subfields = new_reject_subfields
+
+# os._exit(0)
 all_CS_subfields = find_all_descendants('41008148')
 print('all CS subfields:', len(all_CS_subfields))
 
 def len_intersection(a, b):
     return len(a.intersection(b))
+
+def has_intersection(a, b):
+    return len_intersection(a, b) > 0
 
 def get_hIndex(citations):
     citations = sorted(citations, reverse=True) 
@@ -94,14 +107,17 @@ def calc(rows):
             cur.execute(query)
             citationCount = cur.fetchall()[0][0]
             citationCounts.append(citationCount)
-            l = len_intersection(ret, all_CS_subfields)
-            if len(ret):
-            # if l:
-                # rate = min(l / len(ret) * 2, 1)
-                rate = l / len(ret)
-                # rate = 1
-                row['CSPaperCount'] += rate
-                row['CSCitationCount'] += citationCount * rate
+            # l = len_intersection(ret, all_CS_subfields)
+            # if len(ret):
+            # # if l:
+            #     # rate = min(l / len(ret) * 2, 1)
+            #     rate = l / len(ret)
+            #     # rate = 1
+            #     row['CSPaperCount'] += rate
+            #     row['CSCitationCount'] += citationCount * rate
+            if has_intersection(ret, all_CS_subfields) and not has_intersection(ret, reject_subfields):
+                row['CSPaperCount'] += 1
+                row['CSCitationCount'] += citationCount
         row['CitationCount'] = sum(citationCounts)
         row['hIndex'] = get_hIndex(citationCounts)
         if row['hIndex'] >= 5:

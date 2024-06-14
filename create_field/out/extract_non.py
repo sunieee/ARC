@@ -21,7 +21,7 @@ import re
 import numpy as np
 import os
 
-folder = 'fellows'
+folder = 'fellowV3'
 
 # 连接数据库
 def create_connection(database='MACG'):
@@ -93,11 +93,15 @@ def find_all_descendants(parent_id):
     recurse(parent_id)
     return descendants
 
+reject_subfields = set(['44870925', '1276947', '51244244'])
 all_CS_subfields = find_all_descendants('41008148')
 print('all CS subfields:', len(all_CS_subfields))
 
 def len_intersection(a, b):
     return len(a.intersection(b))
+
+def has_intersection(a, b):
+    return len_intersection(a, b) > 0
 
 def get_hIndex(citations):
     citations = sorted(citations, reverse=True) 
@@ -139,12 +143,10 @@ def calc(authorIDs):
             cur.execute(query)
             citationCount = cur.fetchall()[0][0]
             citationCounts.append(citationCount)
-            l = len_intersection(ret, all_CS_subfields)
 
-            if len(ret):
-                rate = min(l / len(ret) * 2, 1)
-                row['CSPaperCount'] += rate
-                row['CSCitationCount'] += citationCount * rate
+            if has_intersection(ret, all_CS_subfields) and not has_intersection(ret, reject_subfields):
+                row['CSPaperCount'] += 1
+                row['CSCitationCount'] += citationCount
 
         row['CitationCount'] = sum(citationCounts)
         row['hIndex'] = get_hIndex(citationCounts)
@@ -167,7 +169,7 @@ for field in tqdm(candidate_databases):
         print('field:', field, 'len:', len(field2candidateIDs[field]), 'candidate:', len(field2candidateIDs[field]))
         continue
 
-    field_authorIDs = set(pd.read_csv(f'../{field}/top_field_authors.csv', dtype={'authorID': str})['authorID'])
+    field_authorIDs = set(pd.read_csv(f'{field}/top_field_authors.csv', dtype={'authorID': str})['authorID'])
     # candidate不能是fellow
     field2candidateIDs[field] = list(field_authorIDs - fellowIDs)
     print('field:', field, 'len:', len(field2candidateIDs[field]), 'candidate:', len(field2candidateIDs[field]))
