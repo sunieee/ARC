@@ -52,7 +52,6 @@ if not os.path.exists(f'{path}/paper_reference.csv'):
     df_paper_author, df_paper_reference = extract_batch(paperID_batches)
     df_paper_author.to_csv(f"{path}/paper_author.csv", index=False)
     df_paper_reference.to_csv(f"{path}/paper_reference.csv", index=False)
-    df_paper_reference = None
 else:
     df_papers = pd.read_csv(f"{path}/papers.csv")
     df_paper_author = pd.read_csv(f"{path}/paper_author.csv")
@@ -60,4 +59,5 @@ else:
 df_paper_author['authorID'] = df_paper_author['authorID'].astype(str)
 df_paper_author['paperID'] = df_paper_author['paperID'].astype(str)
 df_papers['paperID'] = df_papers['paperID'].astype(str)
+df_papers['PublicationDate'] = pd.to_datetime(df_papers['PublicationDate'], errors='coerce')
 

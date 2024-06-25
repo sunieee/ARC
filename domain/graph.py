@@ -8,40 +8,23 @@ import pandas as pd
 from datetime import datetime
 from utils import df_paper_author, df_papers, create_connection, field
 
-df_paper_author_filtered = df_paper_author
-path_to_mapping = f"out/{field}/csv"
+path = f"out/{field}"
+df_paper_reference = pd.read_csv(f"{path}/paper_reference.csv", dtype={'citingpaperID': str, 'citedpaperID': str})
 
 # 直接从paper_reference表中筛选出自引的记录
 print('creating node & edges', datetime.now().strftime("%H:%M:%S"))
 if not os.path.exists(f'out/{field}/edges.csv'):
     print('edges.csv not found, creating self-reference graph...')
     t = time.time()
-    df_paper_reference = pd.read_csv(f"{path_to_mapping}/paper_reference.csv")
-    df_paper_reference['citingpaperID'] = df_paper_reference['citingpaperID'].astype(str)
-    df_paper_reference['citedpaperID'] = df_paper_reference['citedpaperID'].astype(str)
-    # 使用两次 merge 来模拟 SQL 中的 join 操作    
-    merged_df1 = df_paper_reference.merge(df_paper_author_filtered, left_on='citingpaperID', right_on='paperID')
-    merged_df2 = merged_df1.merge(df_paper_author_filtered.rename(columns={'authorID': 'authorID2', 'paperID': 'paperID2'}), 
-                                    left_on='citedpaperID', right_on='paperID2')
-    edges = merged_df2[merged_df2['authorID'] == merged_df2['authorID2']]
-    edges = edges[['authorID', 'citingpaperID', 'citedpaperID']]
+    paperIDs = set(df_papers['paperID'].drop_duplicates().tolist())
+    edges = df_paper_reference[df_paper_reference['citingpaperID'].isin(paperIDs) & df_paper_reference['citedpaperID'].isin(paperIDs)]
     edges.drop_duplicates(inplace=True)
     
     length = len(edges)
-    edges = edges[edges['authorID'].isin(authorIDs)]
-    print('filter:', length, len(edges))
-    assert length == len(edges)
-
     edges.to_csv(f'out/{field}/edges.csv', index=False)
-    merged_df1 = None
-    merged_df2 = None
     print(f'edges created, time cost:', time.time()-t)
 else:   
     edges = pd.read_csv(f'out/{field}/edges.csv')
-    # edges = edges[edges['citingpaperID'].isin(paperID_list) & edges['citedpaperID'].isin(paperID_list)]
-    # edges.drop_duplicates(inplace=True)
-    # edges.to_csv(f'out/edges.csv', index=False) 
-    edges['authorID'] = edges['authorID'].astype(str)
     edges['citingpaperID'] = edges['citingpaperID'].astype(str)
     edges['citedpaperID'] = edges['citedpaperID'].astype(str)
 
@@ -52,7 +35,7 @@ nodes = pd.concat([edges['citingpaperID'], edges['citedpaperID']])
 nodes = tuple(nodes.drop_duplicates().values)
 print('#nodes:', len(nodes), '#edges:', len(edges))
 
-paperID_list = df_paper_author_filtered['paperID'].drop_duplicates().tolist()
+paperID_list = df_paper_author['paperID'].drop_duplicates().tolist()
 print('#paperID_list:', len(paperID_list))
 # paperID_list是所有节点，而nodes是非孤立点
 
@@ -79,9 +62,6 @@ if os.path.exists(f'out/{field}/paperID2year.json'):
 else:
     paperID2year = dict(zip(df_papers['paperID'].tolist(), df_papers['PublicationDate'].apply(lambda x: x.year).tolist()))
 
-    df_paper_reference = pd.read_csv(f"{path_to_mapping}/paper_reference.csv")
-    df_paper_reference['citingpaperID'] = df_paper_reference['citingpaperID'].astype(str)
-    df_paper_reference['citedpaperID'] = df_paper_reference['citedpaperID'].astype(str)
     citingpaperID_list = [paperID for paperID in df_paper_reference['citingpaperID'].drop_duplicates().tolist() if paperID not in paperID2year]
     print('extracting citingpaper years', len(citingpaperID_list))
     multiproces_num = 20
@@ -101,9 +81,6 @@ else:
 if os.path.exists(f'out/{field}/node2citingpaperIDs.json'):
     node2citingpaperIDs = json.load(open(f'out/{field}/node2citingpaperIDs.json'))
 else:
-    df_paper_reference = pd.read_csv(f"{path_to_mapping}/paper_reference.csv")
-    df_paper_reference['citingpaperID'] = df_paper_reference['citingpaperID'].astype(str)
-    df_paper_reference['citedpaperID'] = df_paper_reference['citedpaperID'].astype(str)
     #######################################################3
     # 这是关键路径！！优化前： 50h 优化后： 1min
     # 首先，筛选出仅包含在 nodes 中的 citedpaperID

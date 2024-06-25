@@ -29,20 +29,11 @@ with open(f'out/{field}/paperID_list.txt', 'r') as f:
 # 一旦模型被训练，你可以多次使用它来推断新的文档向量，而不需要重新训练。
 # RETRAIN_GENSIM = False 时，加载已经训练好的模型，并使用它来推断新的文档向量
 ############################################################
-# read all the selected papers in MAG
-with open(f"out/{field}/paperID2abstract.json") as f:
-    paperID2abstract = json.load(f)
 
-db = pd.read_csv(f'out/{field}/csv/papers.csv')
-db['paperID'] = db['paperID'].astype(str)
+db = pd.read_csv(f'out/{field}/papers.csv', dtype={'paperID': str})
 db = db[db['paperID'].isin(nodes)]
-db = db[['paperID', 'title']]
-db['abstract'] = db['paperID'].map(paperID2abstract)
+db = db[['paperID', 'title', 'abstract']]
 db.reset_index(drop=True, inplace=True)
-
-# db = pd.read_sql_query(f'''select paperID, title, abstract 
-#                         from papers_{db_suffix}
-#                         where paperID in {nodes}''', engine)
 
 print('similarity_mysql:',len(db))
 print(db.head())

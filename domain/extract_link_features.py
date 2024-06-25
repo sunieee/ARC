@@ -12,19 +12,10 @@ from sqlalchemy import create_engine
 from tqdm import tqdm
 import math
 import multiprocessing
+from utils import field, df_papers, df_paper_author
 
-# import all needed variable from utils
-if os.environ.get('scholar') == '1':
-    from utils_scholar import *
-else:
-    from utils import *
-    df_papers, df_authors, df_paper_author, df_paper_author_filtered, top_authors = create_top()
 
-edges = pd.read_csv(f'out/{field}/edges.csv')
-edges['authorID'] = edges['authorID'].astype(str)
-edges['citingpaperID'] = edges['citingpaperID'].astype(str)
-edges['citedpaperID'] = edges['citedpaperID'].astype(str)
-
+edges = pd.read_csv(f'out/{field}/edges.csv', dtype={'citingpaperID': str, 'citedpaperID': str})
 paperID2year = json.load(open(f'out/{field}/paperID2year.json'))
 paperID2year = {k: int(v) for k, v in paperID2year.items() if not np.isnan(v)}
 edges_by_citing = edges.groupby('citingpaperID')['citedpaperID'].agg(list)
@@ -239,7 +230,6 @@ def extract_feature(ixs):
     ret = {}
     for i in tqdm(ixs):
         row = edges.iloc[i]
-        authorID = row['authorID']
         citing = row['citingpaperID']
         cited = row['citedpaperID']
         
@@ -284,8 +274,7 @@ def extract_feature(ixs):
             if feature not in dic or dic[feature] is None:
                 dic[feature] = np.nan
 
-        # df_feature.loc[citing + ' ' + cited + ' ' + authorID] = dic
-        ret[citing + ' ' + cited + ' ' + authorID] = dic
+        ret[citing + ' ' + cited] = dic
     return ret
 
 multiprocess_num = multiprocessing.cpu_count()
@@ -306,10 +295,10 @@ df_feature = pd.DataFrame.from_dict(results_dic, orient='index', columns=feature
 
 # 假设df_feature已经有一个MultiIndex
 # 拆分MultiIndex为两个单独的列
-df_feature['citingpaperID'], df_feature['citedpaperID'], df_feature['authorID'] = zip(*df_feature.index.str.split(' '))
+df_feature['citingpaperID'], df_feature['citedpaperID'] = zip(*df_feature.index.str.split(' '))
 
 # 将这两列放在DataFrame的前面
-cols = ['citingpaperID', 'citedpaperID', 'authorID'] + [col for col in df_feature if col not in ['citingpaperID', 'citedpaperID', 'authorID']]
+cols = ['citingpaperID', 'citedpaperID'] + [col for col in df_feature if col not in ['citingpaperID', 'citedpaperID']]
 df_feature = df_feature[cols]
 
 # sleep()
@@ -317,5 +306,3 @@ df_feature.to_csv(f'out/{field}/all_features.csv',index=False)
 print('all_features.csv saved', len(df_feature))
 print(df_feature.head())
 
-cursor.close()
-conn.close()

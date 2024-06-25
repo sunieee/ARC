@@ -15,7 +15,7 @@ df = pd.read_csv(f'out/{field}/all_features.csv')
 
 # 3. 数据预处理
 features = ["cross_correlation","window_cross_correlation","year_diff","citing_paper_citationcount","cited_paper_citationcount","self_cite","similarity","jaccard_cocitation","jaccard_bibcoupling"]
-df_name = df[["citingpaperID", "citedpaperID", "authorID"]]
+df_name = df[["citingpaperID", "citedpaperID"]]
 df_test = df[features]
 
 # 处理缺失值
