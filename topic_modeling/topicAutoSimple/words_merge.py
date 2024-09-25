@@ -42,7 +42,7 @@ wnl = WordNetLemmatizer()
 directory = sys.path[0] + "/output/" + field
 with open(os.path.join(directory, "topic_word_prob_raw.json"), "r") as f:
     data = json.load(f)
-unused_words = ["the", "of", "and", "for", "on", "we", "to", "that", "this", "in", "was", "were", 'a', "off", "be", "you"]
+unused_words = ["the", "of", "and", "for", "on", "we", "to", "that", "this", "in", "was", "were", 'a', "off"]
 lst = []
 for words in data:
     dic = {}
@@ -68,8 +68,8 @@ for words in data:
                 dic[res] = prob
     dic = dict(sorted(dic.items(), key=lambda x:x[1], reverse=True))
     lst.append(dic)
-    print(len(dic), end='\t')
-print()
+    # print(len(dic), end='\t')
+# print()
 data = json.dumps(lst, indent=4, separators=(',', ': '))
 with open(os.path.join(directory, "topic_word_prob_merged.json"), "w") as f:
     f.write(data)

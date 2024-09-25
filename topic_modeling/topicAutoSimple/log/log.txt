@@ -1,0 +1,502 @@
+Start learning field CN
+    To find the bounds, run field CN for 1 times
+        lowerTSBound: 307, upperTSBound: -1 minTopicSize: 614, topicCount: 237
+    To find the bounds, run field CN for 2 times
+        lowerTSBound: 307, upperTSBound: 614 minTopicSize: 307, topicCount: 91
+    To find the best topic count, run field CN for 1 times
+        lowerTSBound: 460, upperTSBound: 614 minTopicSize: 460, topicCount: 169
+Start learning field HCI
+    To find the bounds, run field HCI for 1 times
+        lowerTSBound: -1, upperTSBound: 111 minTopicSize: 55, topicCount: 80, minTopicCount
+    To find the bounds, run field HCI for 2 times
+        lowerTSBound: 55, upperTSBound: 111 minTopicSize: 110, topicCount: 141, minTopicCount
+    To find the best topic count, run field HCI for 1 times
+        lowerTSBound: 83, upperTSBound: 111 minTopicSize: 83, topicCount: 104
+Start learning field SE
+    To find the bounds, run field SE for 1 times
+        lowerTSBound: 144, upperTSBound: -1 minTopicSize: 288, topicCount: 120, minTopicCount
+    To find the bounds, run field SE for 2 times
+        lowerTSBound: 144, upperTSBound: 288 minTopicSize: 144, topicCount: 65, minTopicCount
+    To find the best topic count, run field SE for 1 times
+        lowerTSBound: 144, upperTSBound: 216 minTopicSize: 216, topicCount: 77
+Start learing field ACMfellowTuring
+	To find the bounds, run field ACMfellowTuring for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 199, topicCount: 23, minTopicCount: 110
+	To find the bounds, run field ACMfellowTuring for 2 times
+		lowerTSBound: -1, upperTSBound: 199 minTopicSize: 99, topicCount: 236, minTopicCount: 110
+	To find the best topic count, run field ACMfellowTuring for 1 times
+		lowerTSBound: 99, upperTSBound: 199 minTopicSize: 149, topicCount: 24
+	To find the best topic count, run field ACMfellowTuring for 2 times
+		lowerTSBound: 99, upperTSBound: 149 minTopicSize: 124, topicCount: 192
+	To find the best topic count, run field ACMfellowTuring for 3 times
+		lowerTSBound: 124, upperTSBound: 149 minTopicSize: 136, topicCount: 30
+	To find the best topic count, run field ACMfellowTuring for 4 times
+		lowerTSBound: 124, upperTSBound: 136 minTopicSize: 130, topicCount: 175
+	To find the best topic count, run field ACMfellowTuring for 5 times
+		lowerTSBound: 130, upperTSBound: 136 minTopicSize: 133, topicCount: 17
+Start learing field AI
+Start learing field ACMfellowTuring
+Start learing field ACMfellowTuring
+	To find the bounds, run field ACMfellowTuring for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 201, topicCount: 111, minTopicCount: 110
+Start learing field AIfellow0
+Start learing field AIfellow0
+	To find the bounds, run field AIfellow0 for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 432, topicCount: 250, minTopicCount: 150
+	To find the bounds, run field AIfellow0 for 2 times
+		lowerTSBound: 432, upperTSBound: -1 minTopicSize: 864, topicCount: 103, minTopicCount: 150
+Start learing field AIfellow0
+	To find the bounds, run field AIfellow0 for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 432, topicCount: 103, minTopicCount: 150
+Start learing field AI
+Start learing field VCG
+	To find the bounds, run field VCG for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 100, topicCount: 101, minTopicCount: 80
+	To find the bounds, run field VCG for 2 times
+		lowerTSBound: 100, upperTSBound: -1 minTopicSize: 200, topicCount: 47, minTopicCount: 80
+	To find the best topic count, run field VCG for 1 times
+		lowerTSBound: 100, upperTSBound: 200 minTopicSize: 150, topicCount: 70
+	To find the best topic count, run field VCG for 2 times
+		lowerTSBound: 100, upperTSBound: 150 minTopicSize: 125, topicCount: 78
+	To find the best topic count, run field VCG for 3 times
+		lowerTSBound: 100, upperTSBound: 125 minTopicSize: 112, topicCount: 93
+	To find the best topic count, run field VCG for 4 times
+		lowerTSBound: 112, upperTSBound: 125 minTopicSize: 118, topicCount: 90
+	To find the best topic count, run field VCG for 5 times
+		lowerTSBound: 118, upperTSBound: 125 minTopicSize: 121, topicCount: 82
+Start learing field AI
+Start learing field fellowAI0
+Start learing field fellowAI0
+	To find the bounds, run field fellowAI0 for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 432, topicCount: 193, baseTopicCount: 150
+	To find the bounds, run field fellowAI0 for 2 times
+		lowerTSBound: 432, upperTSBound: -1 minTopicSize: 864, topicCount: 110, baseTopicCount: 150
+	To find the best topic count, run field fellowAI0 for 1 times
+		lowerTSBound: 432, upperTSBound: 864 minTopicSize: 648, topicCount: 140
+	To find the best topic count, run field fellowAI0 for 2 times
+		lowerTSBound: 432, upperTSBound: 648 minTopicSize: 540, topicCount: 179
+	To find the best topic count, run field fellowAI0 for 3 times
+		lowerTSBound: 540, upperTSBound: 648 minTopicSize: 594, topicCount: 145
+	To find the best topic count, run field fellowAI0 for 4 times
+		lowerTSBound: 540, upperTSBound: 594 minTopicSize: 567, topicCount: 145
+Start learing field AI
+Start learing field AI
+Start learing field AI
+Start learing field AI
+Start learing field AI
+	To find the bounds, run field AI for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 619, topicCount: 290, baseTopicCount: 172
+	To find the bounds, run field AI for 2 times
+		lowerTSBound: 619, upperTSBound: -1 minTopicSize: 1238, topicCount: 129, baseTopicCount: 172
+	To find the best topic count, run field AI for 1 times
+		lowerTSBound: 619, upperTSBound: 1238 minTopicSize: 928, topicCount: 181
+	To find the best topic count, run field AI for 2 times
+		lowerTSBound: 928, upperTSBound: 1238 minTopicSize: 1083, topicCount: 141
+	To find the best topic count, run field AI for 3 times
+		lowerTSBound: 928, upperTSBound: 1083 minTopicSize: 1005, topicCount: 167
+	To find the best topic count, run field AI for 4 times
+		lowerTSBound: 928, upperTSBound: 1005 minTopicSize: 966, topicCount: 171
+	To find the best topic count, run field AI for 5 times
+		lowerTSBound: 928, upperTSBound: 966 minTopicSize: 947, topicCount: 172
+Start learing field AI
+Start learing field ACMfellowTuringAll
+Start learing field ACMfellowTuringAll
+	To find the bounds, run field ACMfellowTuringAll for 1 times
+		lowerTSBound: -1, upperTSBound: -1 minTopicSize: 49, topicCount: 494, baseTopicCount: 503
+	To find the bounds, run field ACMfellowTuringAll for 2 times
+		lowerTSBound: -1, upperTSBound: 49 minTopicSize: 24, topicCount: 1026, baseTopicCount: 503
+	To find the best topic count, run field ACMfellowTuringAll for 1 times
+		lowerTSBound: 24, upperTSBound: 49 minTopicSize: 36, topicCount: 670[2024-01-11 20:51:41,178]: Start learing field ACMfellowTuringAll
+[2024-01-11 20:55:51,891]: Start learing field ACMfellowTuringAll
+[2024-01-11 20:55:51,891]: 	To find the bounds, start running field ACMfellowTuringAll for 1 times
+[2024-01-11 20:57:45,255]: Start learing field AI
+[2024-01-11 20:57:45,255]: 	To find the bounds, start running field AI for 1 times
+[2024-01-12 09:23:27,437]: Start learing field ACMfellowTuringAll
+[2024-01-12 09:23:27,438]: 	To find the bounds, start running field ACMfellowTuringAll for 1 times
+[2024-01-12 09:25:04,824]: Start learing field ACMfellowTuringAll
+[2024-01-12 09:25:04,824]: 	To find the bounds, start running field ACMfellowTuringAll for 1 times
+[2024-01-12 15:58:59,206]: Start learing field ACMfellowTuring
+[2024-01-12 15:58:59,206]: 	To find the bounds, start running field ACMfellowTuring for 1 times
+[2024-01-12 16:39:31,161]: 	Running field ACMfellowTuring for 1 times completed.
+[2024-01-12 16:39:31,161]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 226, topicCount: 94, baseTopicCount: 110
+[2024-01-12 16:39:31,398]: 	To find the bounds, start running field ACMfellowTuring for 2 times
+[2024-01-12 17:29:54,655]: 	Running field ACMfellowTuring for 2 times completed.
+[2024-01-12 17:29:54,655]: 		lowerTSBound: -1, upperTSBound: 238 minTopicSize: 113, topicCount: 217, baseTopicCount: 110
+[2024-01-12 17:29:54,917]: 	To find the best topic count, start running field ACMfellowTuring for 1 times
+[2024-01-12 19:12:42,331]: 	To find the best topic count, run field ACMfellowTuring for 1 times
+[2024-01-12 19:12:42,332]: 		lowerTSBound: 113, upperTSBound: 238 minTopicSize: 175, topicCount: 128
+[2024-01-12 19:12:42,600]: 	To find the best topic count, start running field ACMfellowTuring for 2 times
+[2024-01-12 19:54:00,146]: 	To find the best topic count, run field ACMfellowTuring for 2 times
+[2024-01-12 19:54:00,146]: 		lowerTSBound: 175, upperTSBound: 238 minTopicSize: 206, topicCount: 119
+[2024-01-12 19:54:00,386]: 	To find the best topic count, start running field ACMfellowTuring for 3 times
+[2024-01-12 20:54:05,774]: 	To find the best topic count, run field ACMfellowTuring for 3 times
+[2024-01-12 20:54:05,774]: 		lowerTSBound: 206, upperTSBound: 238 minTopicSize: 222, topicCount: 98
+[2024-01-12 20:54:06,006]: 	To find the best topic count, start running field ACMfellowTuring for 4 times
+[2024-01-12 21:55:22,677]: 	To find the best topic count, run field ACMfellowTuring for 4 times
+[2024-01-12 21:55:22,677]: 		lowerTSBound: 206, upperTSBound: 222 minTopicSize: 214, topicCount: 107
+[2024-01-12 21:55:22,677]: 	To find the best topic count, start running field ACMfellowTuring for 5 times
+[2024-01-12 22:56:13,300]: 	To find the best topic count, run field ACMfellowTuring for 5 times
+[2024-01-12 22:56:13,300]: 		lowerTSBound: 206, upperTSBound: 222 minTopicSize: 214, topicCount: 108
+[2024-01-14 13:51:35,168]: Start learing field AI
+[2024-01-14 13:51:35,168]: 	To find the bounds, start running field AI for 1 times
+[2024-01-15 14:36:14,221]: Start learing field AI
+[2024-01-15 14:36:14,221]: 	To find the bounds, start running field AI for 1 times
+[2024-01-15 14:42:17,300]: Start learing field ACMfellowTuring
+[2024-01-15 14:42:17,300]: 	To find the bounds, start running field ACMfellowTuring for 1 times
+[2024-01-16 09:27:13,439]: Start learing field ACMfellowTuring
+[2024-01-16 09:27:13,439]: 	To find the bounds, start running field ACMfellowTuring for 1 times
+[2024-01-16 13:37:31,692]: Start learing field ACMfellowTuring
+[2024-01-16 13:37:31,692]: 	To find the bounds, start running field ACMfellowTuring for 1 times
+[2024-01-16 15:40:22,890]: 	Running field ACMfellowTuring for 1 times completed.
+[2024-01-16 15:40:22,890]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 49, topicCount: 473, baseTopicCount: 503
+[2024-01-16 15:40:23,183]: 	To find the bounds, start running field ACMfellowTuring for 2 times
+[2024-01-17 04:02:02,346]: 	Running field ACMfellowTuring for 2 times completed.
+[2024-01-17 04:02:02,346]: 		lowerTSBound: -1, upperTSBound: 55 minTopicSize: 24, topicCount: 982, baseTopicCount: 503
+[2024-01-17 04:02:02,751]: 	To find the best topic count, start running field ACMfellowTuring for 1 times
+[2024-01-17 07:27:06,549]: 	To find the best topic count, run field ACMfellowTuring for 1 times
+[2024-01-17 07:27:06,549]: 		lowerTSBound: 24, upperTSBound: 55 minTopicSize: 39, topicCount: 594
+[2024-01-17 07:27:06,876]: 	To find the best topic count, start running field ACMfellowTuring for 2 times
+[2024-01-17 09:22:28,420]: 	To find the best topic count, run field ACMfellowTuring for 2 times
+[2024-01-17 09:22:28,421]: 		lowerTSBound: 39, upperTSBound: 55 minTopicSize: 47, topicCount: 486
+[2024-01-17 09:22:28,421]: 	To find the best topic count, start running field ACMfellowTuring for 3 times
+[2024-01-17 11:39:15,970]: 	To find the best topic count, run field ACMfellowTuring for 3 times
+[2024-01-17 11:39:15,970]: 		lowerTSBound: 39, upperTSBound: 54 minTopicSize: 46, topicCount: 519
+[2024-01-17 11:39:15,970]: 	To find the best topic count, start running field ACMfellowTuring for 4 times
+[2024-01-17 12:02:10,697]: 	To find the best topic count, run field ACMfellowTuring for 4 times
+[2024-01-17 12:02:10,697]: 		lowerTSBound: 46, upperTSBound: 54 minTopicSize: 50, topicCount: 519
+[2024-01-17 12:02:10,999]: 	To find the best topic count, start running field ACMfellowTuring for 5 times
+[2024-01-18 16:17:39,580]: Start learing field AI
+[2024-01-18 16:17:39,580]: 	To find the bounds, start running field AI for 1 times
+[2024-01-19 15:04:57,288]: 	Running field AI for 1 times completed.
+[2024-01-19 15:04:57,288]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 266, topicCount: 599, baseTopicCount: 402
+[2024-01-19 15:04:57,955]: 	To find the bounds, start running field AI for 2 times
+[2024-01-20 00:13:58,706]: 	Running field AI for 2 times completed.
+[2024-01-20 00:13:58,706]: 		lowerTSBound: 266, upperTSBound: inf minTopicSize: 532, topicCount: 354, baseTopicCount: 402
+[2024-01-20 00:14:00,836]: 	To find the best topic count, start running field AI for 1 times
+[2024-01-20 10:50:03,642]: 	To find the best topic count, run field AI for 1 times
+[2024-01-20 10:50:03,643]: 		lowerTSBound: 266, upperTSBound: 574 minTopicSize: 420, topicCount: 400
+[2024-01-20 10:50:03,643]: 	To find the best topic count, start running field AI for 2 times
+[2024-01-21 00:42:44,019]: 	To find the best topic count, run field AI for 2 times
+[2024-01-21 00:42:44,020]: 		lowerTSBound: 266, upperTSBound: 501 minTopicSize: 383, topicCount: 436
+[2024-01-21 00:42:46,558]: 	To find the best topic count, start running field AI for 3 times
+[2024-01-21 10:58:03,187]: 	To find the best topic count, run field AI for 3 times
+[2024-01-21 10:58:03,187]: 		lowerTSBound: 383, upperTSBound: 501 minTopicSize: 442, topicCount: 384
+[2024-01-21 10:58:03,703]: 	To find the best topic count, start running field AI for 4 times
+[2024-01-21 21:29:27,875]: 	To find the best topic count, run field AI for 4 times
+[2024-01-21 21:29:27,878]: 		lowerTSBound: 383, upperTSBound: 501 minTopicSize: 442, topicCount: 391
+[2024-01-21 21:29:27,879]: 	To find the best topic count, start running field AI for 5 times
+[2024-01-21 23:54:53,565]: 	To find the best topic count, run field AI for 5 times
+[2024-01-21 23:54:53,565]: 		lowerTSBound: 383, upperTSBound: 501 minTopicSize: 442, topicCount: 391
+[2024-01-22 16:18:20,474]: Start learing field ACMfellowTuring
+[2024-01-22 16:18:20,474]: 	To find the bounds, start running field ACMfellowTuring for 1 times
+[2024-01-22 16:28:27,790]: Start learing field ACMfellowTuring
+[2024-01-22 16:28:27,790]: 	To find the bounds, start running field ACMfellowTuring for 1 times
+[2024-01-22 18:28:26,690]: 	Running field ACMfellowTuring for 1 times completed.
+[2024-01-22 18:28:26,694]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 49, topicCount: 481, baseTopicCount: 503
+[2024-01-22 18:28:28,195]: 	To find the bounds, start running field ACMfellowTuring for 2 times
+[2024-01-23 04:53:37,432]: 	Running field ACMfellowTuring for 2 times completed.
+[2024-01-23 04:53:37,435]: 		lowerTSBound: -1, upperTSBound: 56 minTopicSize: 24, topicCount: 1006, baseTopicCount: 503
+[2024-01-23 04:53:37,837]: 	To find the best topic count, start running field ACMfellowTuring for 1 times
+[2024-01-23 07:33:25,294]: 	To find the best topic count, run field ACMfellowTuring for 1 times
+[2024-01-23 07:33:25,294]: 		lowerTSBound: 24, upperTSBound: 56 minTopicSize: 40, topicCount: 570
+[2024-01-23 07:33:25,636]: 	To find the best topic count, start running field ACMfellowTuring for 2 times
+[2024-01-23 09:40:28,891]: 	To find the best topic count, run field ACMfellowTuring for 2 times
+[2024-01-23 09:40:28,891]: 		lowerTSBound: 40, upperTSBound: 56 minTopicSize: 48, topicCount: 483
+[2024-01-23 09:40:30,839]: 	To find the best topic count, start running field ACMfellowTuring for 3 times
+[2024-01-23 12:04:15,993]: 	To find the best topic count, run field ACMfellowTuring for 3 times
+[2024-01-23 12:04:15,994]: 		lowerTSBound: 40, upperTSBound: 55 minTopicSize: 47, topicCount: 490
+[2024-01-23 12:04:18,893]: 	To find the best topic count, start running field ACMfellowTuring for 4 times
+[2024-01-23 16:13:38,223]: 	To find the best topic count, run field ACMfellowTuring for 4 times
+[2024-01-23 16:13:38,223]: 		lowerTSBound: 40, upperTSBound: 55 minTopicSize: 47, topicCount: 490
+[2024-01-23 16:13:40,177]: 	To find the best topic count, start running field ACMfellowTuring for 5 times
+[2024-01-23 18:28:01,753]: 	To find the best topic count, run field ACMfellowTuring for 5 times
+[2024-01-23 18:28:01,753]: 		lowerTSBound: 40, upperTSBound: 55 minTopicSize: 47, topicCount: 481
+[2024-01-23 18:28:03,799]: Finish learing field ACMfellowTuring
+[2024-01-23 18:28:09,608]: Finish generating others for field ACMfellowTuring
+[2024-01-23 18:28:11,596]: Finish uploading files for field ACMfellowTuring
+
+[2024-01-24 05:35:49,233]: Start learing field AI
+[2024-01-24 05:35:49,234]: 	To find the bounds, start running field AI for 1 times
+[2024-01-24 07:59:49,513]: 	Running field AI for 1 times completed.
+[2024-01-24 07:59:49,513]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 266, topicCount: 391, baseTopicCount: 402
+[2024-01-24 07:59:49,913]: 	To find the bounds, start running field AI for 2 times
+[2024-03-12 22:18:30,540]: Start learing field fellowVSNon
+[2024-03-12 22:18:30,540]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-13 11:29:33,534]: Start learing field fellowVSNon
+[2024-03-13 11:29:33,534]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-13 11:46:07,369]: Start learing field fellowVSNon
+[2024-03-13 11:46:07,369]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-13 11:47:08,522]: Start learing field fellowVSNon
+[2024-03-13 11:47:08,522]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-14 11:48:03,516]: Start learing field fellowVSNon
+[2024-03-14 11:48:03,516]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-14 12:19:14,485]: 	Running field fellowVSNon for 1 times completed.
+[2024-03-14 12:19:14,485]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 372, topicCount: 156, baseTopicCount: 140
+[2024-03-14 12:19:15,443]: 	To find the bounds, start running field fellowVSNon for 2 times
+[2024-03-15 15:52:01,289]: Start learing field fellowVSNon
+[2024-03-15 15:52:01,289]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-15 20:17:21,689]: 	Running field fellowVSNon for 1 times completed.
+[2024-03-15 20:17:21,689]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 124, topicCount: 489, baseTopicCount: 422
+[2024-03-15 20:17:23,186]: 	To find the bounds, start running field fellowVSNon for 2 times
+[2024-03-15 22:11:34,515]: 	Running field fellowVSNon for 2 times completed.
+[2024-03-15 22:11:34,515]: 		lowerTSBound: 124, upperTSBound: inf minTopicSize: 248, topicCount: 228, baseTopicCount: 422
+[2024-03-15 22:11:35,466]: 	To find the best topic count, start running field fellowVSNon for 1 times
+[2024-03-16 00:53:02,688]: 	To find the best topic count, run field fellowVSNon for 1 times
+[2024-03-16 00:53:02,688]: 		lowerTSBound: 124, upperTSBound: 248 minTopicSize: 186, topicCount: 317
+[2024-03-16 00:53:03,844]: 	To find the best topic count, start running field fellowVSNon for 2 times
+[2024-03-16 04:18:03,448]: 	To find the best topic count, run field fellowVSNon for 2 times
+[2024-03-16 04:18:03,448]: 		lowerTSBound: 124, upperTSBound: 186 minTopicSize: 155, topicCount: 398
+[2024-03-16 04:18:04,700]: 	To find the best topic count, start running field fellowVSNon for 3 times
+[2024-03-16 07:52:38,517]: 	To find the best topic count, run field fellowVSNon for 3 times
+[2024-03-16 07:52:38,517]: 		lowerTSBound: 124, upperTSBound: 177 minTopicSize: 150, topicCount: 420
+[2024-03-16 07:52:45,956]: 	To find the best topic count, start running field fellowVSNon for 4 times
+[2024-03-16 11:31:19,199]: 	To find the best topic count, run field fellowVSNon for 4 times
+[2024-03-16 11:31:19,199]: 		lowerTSBound: 124, upperTSBound: 177 minTopicSize: 150, topicCount: 404
+[2024-03-16 11:31:27,593]: 	To find the best topic count, start running field fellowVSNon for 5 times
+[2024-03-16 15:07:20,051]: 	To find the best topic count, run field fellowVSNon for 5 times
+[2024-03-16 15:07:20,051]: 		lowerTSBound: 124, upperTSBound: 173 minTopicSize: 148, topicCount: 407
+[2024-03-16 15:07:28,561]: Finish learing field fellowVSNon
+[2024-03-16 15:07:34,269]: Finish generating others for field fellowVSNon
+[2024-03-20 22:09:25,754]: Start learing field fellowVSNon
+[2024-03-20 22:09:25,754]: 	To find the bounds, start running field fellowVSNon for 1 times
+[2024-03-21 03:14:37,240]: 	Running field fellowVSNon for 1 times completed.
+[2024-03-21 03:14:37,241]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 124, topicCount: 482, baseTopicCount: 422
+[2024-03-21 03:14:38,124]: 	To find the bounds, start running field fellowVSNon for 2 times
+[2024-03-21 05:19:22,439]: 	Running field fellowVSNon for 2 times completed.
+[2024-03-21 05:19:22,439]: 		lowerTSBound: 124, upperTSBound: inf minTopicSize: 248, topicCount: 221, baseTopicCount: 422
+[2024-03-21 05:19:23,146]: 	To find the best topic count, start running field fellowVSNon for 1 times
+[2024-03-21 08:01:13,815]: 	To find the best topic count, run field fellowVSNon for 1 times
+[2024-03-21 08:01:13,815]: 		lowerTSBound: 124, upperTSBound: 248 minTopicSize: 186, topicCount: 310
+[2024-03-21 08:01:14,620]: 	To find the best topic count, start running field fellowVSNon for 2 times
+[2024-03-21 11:24:16,785]: 	To find the best topic count, run field fellowVSNon for 2 times
+[2024-03-21 11:24:16,786]: 		lowerTSBound: 124, upperTSBound: 186 minTopicSize: 155, topicCount: 382
+[2024-03-21 11:24:17,662]: 	To find the best topic count, start running field fellowVSNon for 3 times
+[2024-03-21 15:30:15,267]: 	To find the best topic count, run field fellowVSNon for 3 times
+[2024-03-21 15:30:15,267]: 		lowerTSBound: 124, upperTSBound: 171 minTopicSize: 147, topicCount: 418
+[2024-03-21 15:30:20,008]: 	To find the best topic count, start running field fellowVSNon for 4 times
+[2024-03-21 19:16:31,414]: 	To find the best topic count, run field fellowVSNon for 4 times
+[2024-03-21 19:16:31,415]: 		lowerTSBound: 124, upperTSBound: 171 minTopicSize: 147, topicCount: 418
+[2024-03-21 19:16:36,918]: 	To find the best topic count, start running field fellowVSNon for 5 times
+[2024-03-24 20:46:49,906]: Start learing field Security
+[2024-03-24 20:46:49,907]: 	To find the bounds, start running field Security for 1 times
+[2024-03-24 21:41:45,807]: Start learing field Security
+[2024-03-24 21:41:45,807]: 	To find the bounds, start running field Security for 1 times
+[2024-03-24 21:48:38,614]: 	Running field Security for 1 times completed.
+[2024-03-24 21:48:38,615]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 155, topicCount: 118, baseTopicCount: 93
+[2024-03-24 21:48:38,771]: 	To find the bounds, start running field Security for 2 times
+[2024-03-24 22:06:10,383]: 	Running field Security for 2 times completed.
+[2024-03-24 22:06:10,383]: 		lowerTSBound: 155, upperTSBound: inf minTopicSize: 310, topicCount: 71, baseTopicCount: 93
+[2024-03-24 22:06:10,529]: 	To find the best topic count, start running field Security for 1 times
+[2024-03-24 22:23:59,768]: 	To find the best topic count, run field Security for 1 times
+[2024-03-24 22:23:59,768]: 		lowerTSBound: 155, upperTSBound: 310 minTopicSize: 232, topicCount: 91
+[2024-03-24 22:24:00,460]: 	To find the best topic count, start running field Security for 2 times
+[2024-03-24 22:41:57,284]: 	To find the best topic count, run field Security for 2 times
+[2024-03-24 22:41:57,285]: 		lowerTSBound: 155, upperTSBound: 273 minTopicSize: 214, topicCount: 97
+[2024-03-24 22:41:58,138]: 	To find the best topic count, start running field Security for 3 times
+[2024-03-24 22:59:41,752]: 	To find the best topic count, run field Security for 3 times
+[2024-03-24 22:59:41,752]: 		lowerTSBound: 214, upperTSBound: 273 minTopicSize: 243, topicCount: 81
+[2024-03-24 22:59:41,892]: 	To find the best topic count, start running field Security for 4 times
+[2024-03-24 23:17:20,060]: 	To find the best topic count, run field Security for 4 times
+[2024-03-24 23:17:20,060]: 		lowerTSBound: 214, upperTSBound: 243 minTopicSize: 228, topicCount: 87
+[2024-03-24 23:17:20,207]: 	To find the best topic count, start running field Security for 5 times
+[2024-03-24 23:35:09,896]: 	To find the best topic count, run field Security for 5 times
+[2024-03-24 23:35:09,896]: 		lowerTSBound: 214, upperTSBound: 243 minTopicSize: 228, topicCount: 91
+[2024-03-24 23:35:10,742]: Finish learing field Security
+[2024-03-24 23:35:15,569]: Finish generating others for field Security
+[2024-03-24 23:35:17,377]: Finish uploading files for field Security
+
+[2024-03-24 23:35:31,142]: Start learing field CA
+[2024-03-24 23:35:31,142]: 	To find the bounds, start running field CA for 1 times
+[2024-03-25 00:40:29,421]: 	Running field CA for 1 times completed.
+[2024-03-25 00:40:29,421]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 308, topicCount: 163, baseTopicCount: 128
+[2024-03-25 00:40:29,854]: 	To find the bounds, start running field CA for 2 times
+[2024-03-25 06:40:29,667]: 	Running field CA for 2 times completed.
+[2024-03-25 06:40:29,668]: 		lowerTSBound: 308, upperTSBound: inf minTopicSize: 616, topicCount: 92, baseTopicCount: 128
+[2024-03-25 06:40:30,086]: 	To find the best topic count, start running field CA for 1 times
+[2024-03-25 07:40:52,173]: 	To find the best topic count, run field CA for 1 times
+[2024-03-25 07:40:52,173]: 		lowerTSBound: 308, upperTSBound: 616 minTopicSize: 462, topicCount: 114
+[2024-03-25 07:40:52,577]: 	To find the best topic count, start running field CA for 2 times
+[2024-03-25 08:44:22,419]: 	To find the best topic count, run field CA for 2 times
+[2024-03-25 08:44:22,419]: 		lowerTSBound: 308, upperTSBound: 462 minTopicSize: 385, topicCount: 138
+[2024-03-25 08:44:22,837]: 	To find the best topic count, start running field CA for 3 times
+[2024-03-25 10:23:06,171]: 	To find the best topic count, run field CA for 3 times
+[2024-03-25 10:23:06,171]: 		lowerTSBound: 385, upperTSBound: 462 minTopicSize: 423, topicCount: 132
+[2024-03-25 10:23:08,254]: 	To find the best topic count, start running field CA for 4 times
+[2024-03-25 11:25:33,514]: 	To find the best topic count, run field CA for 4 times
+[2024-03-25 11:25:33,515]: 		lowerTSBound: 423, upperTSBound: 462 minTopicSize: 442, topicCount: 125
+[2024-03-25 11:25:35,924]: 	To find the best topic count, start running field CA for 5 times
+[2024-03-25 12:27:16,723]: 	To find the best topic count, run field CA for 5 times
+[2024-03-25 12:27:16,723]: 		lowerTSBound: 423, upperTSBound: 462 minTopicSize: 442, topicCount: 120
+[2024-03-25 12:27:17,142]: Finish learing field CA
+[2024-03-25 12:27:21,892]: Finish generating others for field CA
+[2024-03-25 12:27:24,546]: Finish uploading files for field CA
+
+[2024-05-16 17:08:26,529]: Start learing field fellows
+[2024-05-16 17:08:26,530]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-16 20:50:37,181]: Start learing field fellows
+[2024-05-16 20:50:37,181]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-17 19:04:46,577]: Start learing field fellows
+[2024-05-17 19:04:46,578]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-17 22:45:45,778]: Start learing field fellows
+[2024-05-17 22:45:45,779]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-17 22:47:12,584]: Start learing field fellows
+[2024-05-17 22:47:12,584]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-18 12:12:40,939]: Start learing field fellows
+[2024-05-18 12:12:40,939]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-18 12:13:57,184]: Start learing field fellows
+[2024-05-18 12:13:57,184]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-18 12:34:19,304]: 	Running field fellows for 1 times completed.
+[2024-05-18 12:34:19,305]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 172, topicCount: 312, baseTopicCount: 272
+[2024-05-18 12:34:20,354]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-18 13:41:23,805]: 	Running field fellows for 2 times completed.
+[2024-05-18 13:41:23,805]: 		lowerTSBound: 172, upperTSBound: inf minTopicSize: 344, topicCount: 139, baseTopicCount: 272
+[2024-05-18 13:41:24,573]: 	To find the best topic count, start running field fellows for 1 times
+[2024-05-18 15:04:04,534]: 	To find the best topic count, run field fellows for 1 times
+[2024-05-18 15:04:04,534]: 		lowerTSBound: 172, upperTSBound: 344 minTopicSize: 258, topicCount: 201
+[2024-05-18 15:04:05,307]: 	To find the best topic count, start running field fellows for 2 times
+[2024-05-18 16:37:18,076]: 	To find the best topic count, run field fellows for 2 times
+[2024-05-18 16:37:18,077]: 		lowerTSBound: 172, upperTSBound: 258 minTopicSize: 215, topicCount: 253
+[2024-05-18 16:37:18,970]: 	To find the best topic count, start running field fellows for 3 times
+[2024-05-18 18:18:12,845]: 	To find the best topic count, run field fellows for 3 times
+[2024-05-18 18:18:12,845]: 		lowerTSBound: 172, upperTSBound: 242 minTopicSize: 207, topicCount: 261
+[2024-05-18 18:18:17,000]: 	To find the best topic count, start running field fellows for 4 times
+[2024-05-18 19:54:47,565]: 	To find the best topic count, run field fellows for 4 times
+[2024-05-18 19:54:47,566]: 		lowerTSBound: 172, upperTSBound: 240 minTopicSize: 206, topicCount: 264
+[2024-05-18 19:54:52,245]: 	To find the best topic count, start running field fellows for 5 times
+[2024-05-18 21:36:27,165]: 	To find the best topic count, run field fellows for 5 times
+[2024-05-18 21:36:27,165]: 		lowerTSBound: 172, upperTSBound: 240 minTopicSize: 206, topicCount: 259
+[2024-05-18 21:36:31,774]: Finish learing field fellows
+[2024-05-18 21:36:36,992]: Finish generating others for field fellows
+[2024-05-18 21:36:40,059]: Finish uploading files for field fellows
+
+[2024-05-19 15:36:27,930]: Start learing field fellows
+[2024-05-19 15:36:27,930]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-20 00:45:03,445]: 	Running field fellows for 1 times completed.
+[2024-05-20 00:45:03,458]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 76, topicCount: 654, baseTopicCount: 612
+[2024-05-20 00:45:04,017]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-20 03:12:20,784]: 	Running field fellows for 2 times completed.
+[2024-05-20 03:12:20,784]: 		lowerTSBound: 76, upperTSBound: inf minTopicSize: 152, topicCount: 347, baseTopicCount: 612
+[2024-05-20 03:12:21,831]: 	To find the best topic count, start running field fellows for 1 times
+[2024-05-20 07:03:35,459]: 	To find the best topic count, run field fellows for 1 times
+[2024-05-20 07:03:35,459]: 		lowerTSBound: 76, upperTSBound: 152 minTopicSize: 114, topicCount: 444
+[2024-05-20 07:03:36,501]: 	To find the best topic count, start running field fellows for 2 times
+[2024-05-20 12:30:27,376]: 	To find the best topic count, run field fellows for 2 times
+[2024-05-20 12:30:27,376]: 		lowerTSBound: 76, upperTSBound: 114 minTopicSize: 95, topicCount: 528
+[2024-05-20 12:30:28,575]: 	To find the best topic count, start running field fellows for 3 times
+[2024-05-20 18:43:43,240]: 	To find the best topic count, run field fellows for 3 times
+[2024-05-20 18:43:43,240]: 		lowerTSBound: 76, upperTSBound: 95 minTopicSize: 85, topicCount: 574
+[2024-05-20 18:43:44,480]: 	To find the best topic count, start running field fellows for 4 times
+[2024-05-21 00:41:12,831]: 	To find the best topic count, run field fellows for 4 times
+[2024-05-21 00:41:12,835]: 		lowerTSBound: 76, upperTSBound: 95 minTopicSize: 85, topicCount: 584
+[2024-05-21 00:41:20,887]: 	To find the best topic count, start running field fellows for 5 times
+[2024-05-21 07:12:56,317]: 	To find the best topic count, run field fellows for 5 times
+[2024-05-21 07:12:56,317]: 		lowerTSBound: 76, upperTSBound: 95 minTopicSize: 85, topicCount: 578
+[2024-05-21 07:12:57,467]: Finish learing field fellows
+[2024-05-21 07:13:03,470]: Finish generating others for field fellows
+[2024-05-21 07:13:06,755]: Finish uploading files for field fellows
+
+[2024-05-21 09:53:08,287]: Start learing field fellows
+[2024-05-21 09:53:08,287]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-21 10:03:02,899]: Start learing field fellows
+[2024-05-21 10:03:02,899]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-21 10:25:27,251]: 	Running field fellows for 1 times completed.
+[2024-05-21 10:25:27,251]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 432, topicCount: 584, baseTopicCount: 108
+[2024-05-21 10:25:28,593]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-21 11:21:00,488]: Start learing field fellows
+[2024-05-21 11:21:00,488]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-21 12:06:20,322]: 	Running field fellows for 1 times completed.
+[2024-05-21 12:06:20,322]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 374, topicCount: 120, baseTopicCount: 101
+[2024-05-21 12:06:20,765]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-21 15:19:26,490]: Start learing field fellows
+[2024-05-21 15:19:26,490]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-22 17:01:19,305]: Start learing field fellows
+[2024-05-22 17:01:19,305]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-22 17:01:41,649]: Start learing field fellows
+[2024-05-22 17:01:41,649]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-22 17:01:59,183]: Start learing field fellows
+[2024-05-22 17:01:59,183]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-22 17:32:42,302]: 	Running field fellows for 1 times completed.
+[2024-05-22 17:32:42,302]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 240, topicCount: 118, baseTopicCount: 114
+[2024-05-22 17:32:43,828]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-22 18:15:10,838]: Start learing field fellows
+[2024-05-22 18:15:10,838]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-22 18:44:15,842]: 	Running field fellows for 1 times completed.
+[2024-05-22 18:44:15,842]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 240, topicCount: 109, baseTopicCount: 114
+[2024-05-22 18:44:17,864]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-22 19:19:58,177]: 	Running field fellows for 2 times completed.
+[2024-05-22 19:19:58,177]: 		lowerTSBound: -1, upperTSBound: 277 minTopicSize: 160, topicCount: 180, baseTopicCount: 114
+[2024-05-22 19:19:58,569]: 	To find the best topic count, start running field fellows for 1 times
+[2024-05-22 19:50:00,400]: 	To find the best topic count, run field fellows for 1 times
+[2024-05-22 19:50:00,401]: 		lowerTSBound: 160, upperTSBound: 277 minTopicSize: 218, topicCount: 129
+[2024-05-22 19:50:00,762]: 	To find the best topic count, start running field fellows for 2 times
+[2024-05-22 20:19:25,549]: 	To find the best topic count, run field fellows for 2 times
+[2024-05-22 20:19:25,549]: 		lowerTSBound: 218, upperTSBound: 277 minTopicSize: 247, topicCount: 116
+[2024-05-22 20:19:27,224]: 	To find the best topic count, start running field fellows for 3 times
+[2024-05-22 20:47:37,246]: 	To find the best topic count, run field fellows for 3 times
+[2024-05-22 20:47:37,246]: 		lowerTSBound: 247, upperTSBound: 277 minTopicSize: 262, topicCount: 111
+[2024-05-22 20:47:39,058]: 	To find the best topic count, start running field fellows for 4 times
+[2024-05-22 21:16:13,419]: 	To find the best topic count, run field fellows for 4 times
+[2024-05-22 21:16:13,420]: 		lowerTSBound: 247, upperTSBound: 277 minTopicSize: 262, topicCount: 110
+[2024-05-22 21:16:15,255]: 	To find the best topic count, start running field fellows for 5 times
+[2024-05-22 21:44:47,127]: 	To find the best topic count, run field fellows for 5 times
+[2024-05-22 21:44:47,128]: 		lowerTSBound: 247, upperTSBound: 277 minTopicSize: 262, topicCount: 113
+[2024-05-22 21:44:49,133]: Finish learing field fellows
+[2024-05-22 21:44:54,457]: Finish generating others for field fellows
+[2024-05-22 21:44:56,823]: Finish uploading files for field fellows
+
+[2024-05-27 11:23:37,724]: Start learing field fellows
+[2024-05-27 11:23:37,724]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-27 11:24:53,589]: Start learing field fellows
+[2024-05-27 11:24:53,589]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-27 11:25:21,221]: Start learing field fellows
+[2024-05-27 11:25:21,221]: 	To find the bounds, start running field fellows for 1 times
+[2024-05-27 12:07:11,904]: 	Running field fellows for 1 times completed.
+[2024-05-27 12:07:11,904]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 282, topicCount: 150, baseTopicCount: 123
+[2024-05-27 12:07:12,428]: 	To find the bounds, start running field fellows for 2 times
+[2024-05-27 12:44:59,660]: 	Running field fellows for 2 times completed.
+[2024-05-27 12:44:59,660]: 		lowerTSBound: 282, upperTSBound: inf minTopicSize: 564, topicCount: 74, baseTopicCount: 123
+[2024-05-27 12:45:00,098]: 	To find the best topic count, start running field fellows for 1 times
+[2024-05-27 13:22:36,745]: 	To find the best topic count, run field fellows for 1 times
+[2024-05-27 13:22:36,745]: 		lowerTSBound: 282, upperTSBound: 564 minTopicSize: 423, topicCount: 99
+[2024-05-27 13:22:37,177]: 	To find the best topic count, start running field fellows for 2 times
+[2024-05-27 14:00:42,786]: 	To find the best topic count, run field fellows for 2 times
+[2024-05-27 14:00:42,786]: 		lowerTSBound: 282, upperTSBound: 423 minTopicSize: 352, topicCount: 108
+[2024-05-27 14:00:43,250]: 	To find the best topic count, start running field fellows for 3 times
+[2024-05-27 15:39:12,671]: 	To find the best topic count, run field fellows for 3 times
+[2024-05-27 15:39:12,671]: 		lowerTSBound: 282, upperTSBound: 352 minTopicSize: 317, topicCount: 111
+[2024-05-27 15:39:13,125]: 	To find the best topic count, start running field fellows for 4 times
+[2024-05-27 16:18:09,831]: 	To find the best topic count, run field fellows for 4 times
+[2024-05-27 16:18:09,831]: 		lowerTSBound: 282, upperTSBound: 349 minTopicSize: 315, topicCount: 127
+[2024-05-27 16:18:12,003]: 	To find the best topic count, start running field fellows for 5 times
+[2024-05-27 16:57:34,732]: 	To find the best topic count, run field fellows for 5 times
+[2024-05-27 16:57:34,732]: 		lowerTSBound: 315, upperTSBound: 349 minTopicSize: 332, topicCount: 123
+[2024-05-27 16:57:37,276]: Finish learing field fellows
+[2024-05-27 16:57:42,478]: Finish generating others for field fellows
+[2024-05-27 16:57:45,057]: Finish uploading files for field fellows
+
+[2024-06-01 23:47:28,081]: Start learing field fellowV3
+[2024-06-01 23:47:28,081]: 	To find the bounds, start running field fellowV3 for 1 times
+[2024-06-02 00:29:28,803]: 	Running field fellowV3 for 1 times completed.
+[2024-06-02 00:29:28,807]: 		lowerTSBound: -1, upperTSBound: inf minTopicSize: 287, topicCount: 133, baseTopicCount: 124
+[2024-06-02 00:29:29,283]: 	To find the bounds, start running field fellowV3 for 2 times
+[2024-06-02 01:08:38,823]: 	Running field fellowV3 for 2 times completed.
+[2024-06-02 01:08:38,823]: 		lowerTSBound: 287, upperTSBound: inf minTopicSize: 430, topicCount: 95, baseTopicCount: 124
+[2024-06-02 01:08:39,238]: 	To find the best topic count, start running field fellowV3 for 1 times
+[2024-06-02 01:48:10,116]: 	To find the best topic count, run field fellowV3 for 1 times
+[2024-06-02 01:48:10,116]: 		lowerTSBound: 287, upperTSBound: 430 minTopicSize: 358, topicCount: 107
+[2024-06-02 01:48:10,558]: 	To find the best topic count, start running field fellowV3 for 2 times
+[2024-06-02 02:28:36,830]: 	To find the best topic count, run field fellowV3 for 2 times
+[2024-06-02 02:28:36,830]: 		lowerTSBound: 287, upperTSBound: 358 minTopicSize: 322, topicCount: 119
+[2024-06-02 02:28:39,029]: 	To find the best topic count, start running field fellowV3 for 3 times
+[2024-06-02 03:29:23,748]: 	To find the best topic count, run field fellowV3 for 3 times
+[2024-06-02 03:29:23,748]: 		lowerTSBound: 287, upperTSBound: 358 minTopicSize: 322, topicCount: 117
+[2024-06-02 03:29:24,197]: 	To find the best topic count, start running field fellowV3 for 4 times
+[2024-06-02 04:09:31,257]: 	To find the best topic count, run field fellowV3 for 4 times
+[2024-06-02 04:09:31,257]: 		lowerTSBound: 287, upperTSBound: 358 minTopicSize: 322, topicCount: 110
+[2024-06-02 04:09:31,749]: 	To find the best topic count, start running field fellowV3 for 5 times
+[2024-06-02 04:50:34,811]: 	To find the best topic count, run field fellowV3 for 5 times
+[2024-06-02 04:50:34,811]: 		lowerTSBound: 287, upperTSBound: 322 minTopicSize: 304, topicCount: 118
+[2024-06-02 04:50:37,429]: Finish learing field fellowV3
+[2024-06-02 04:50:42,151]: Finish generating others for field fellowV3
+[2024-06-02 04:50:45,357]: Finish uploading files for field fellowV3
+

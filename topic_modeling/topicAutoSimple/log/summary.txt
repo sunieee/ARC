@@ -1,0 +1,155 @@
+field: CN, paperCount: 878492, Has-abstract count: 796912, Has-abstract ratio: 0.907136319966488
+    baseTopicCount: 143, startTopicSize: 307
+    topicSize: 537, finalTopicCount: 149, baseTopicCount: 143
+field: HCI, paperCount: 131650, Has-abstract count: 112206, Has-abstract ratio: 0.8523053551082416
+    baseTopicCount: 84, startTopicSize: 111
+    topicSize: 97, finalTopicCount: 86, baseTopicCount: 84
+field: SE, paperCount: 236710, Has-abstract count: 156534, Has-abstract ratio: 0.6612901863039162
+    baseTopicCount: 94, startTopicSize: 144
+    topicSize: 180, finalTopicCount: 96, baseTopicCount: 94field: ACMfellowTuring, paperCount: 337693, Has-abstract count: 270745, Has-abstract ratio: 0.8017489257994688
+	baseTopicCount: 110, startTopicSize: 199
+	topicSize: 130, finalTopicCount: 175, baseTopicCount: 110
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 172, startTopicSize: 406
+field: ACMfellowTuring, paperCount: 337693, Has-abstract count: 270745, Has-abstract ratio: 0.8017489257994688
+	baseTopicCount: 110, startTopicSize: 399
+field: ACMfellowTuring, paperCount: 337693, Has-abstract count: 270745, Has-abstract ratio: 0.8017489257994688
+	baseTopicCount: 110, startTopicSize: 201
+	topicSize: 201, finalTopicCount: 111, baseTopicCount: 110
+field: AIfellow0, paperCount: 1177263, Has-abstract count: 1010255, Has-abstract ratio: 0.8581387506445034
+	baseTopicCount: 150, startTopicSize: 341
+field: AIfellow0, paperCount: 1177263, Has-abstract count: 1010255, Has-abstract ratio: 0.8581387506445034
+	baseTopicCount: 150, startTopicSize: 432
+field: AIfellow0, paperCount: 1177263, Has-abstract count: 1010255, Has-abstract ratio: 0.8581387506445034
+	baseTopicCount: 150, startTopicSize: 432
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 172, startTopicSize: 619
+field: VCG, paperCount: 113597, Has-abstract count: 97777, Has-abstract ratio: 0.8607357588668715
+	baseTopicCount: 80, startTopicSize: 100
+	topicSize: 121, finalTopicCount: 82, baseTopicCount: 80
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 172, startTopicSize: 619
+field: fellowAI0, paperCount: 1177263, Has-abstract count: 1010255, Has-abstract ratio: 0.8581387506445034
+	baseTopicCount: 150, startTopicSize: 432
+field: fellowAI0, paperCount: 1177263, Has-abstract count: 1010255, Has-abstract ratio: 0.8581387506445034
+	baseTopicCount: 150, startTopicSize: 432
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 86, startTopicSize: 1238
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 86, startTopicSize: 1238
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 86, startTopicSize: 123800
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 121, startTopicSize: 8840
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 172, startTopicSize: 619
+	topicSize: 947, finalTopicCount: 172, baseTopicCount: 172
+field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+	baseTopicCount: 345, startTopicSize: 309
+field: ACMfellowTuringAll, paperCount: 339214, Has-abstract count: 271798, Has-abstract ratio: 0.8012582027864416
+	baseTopicCount: 503, startTopicSize: 49
+field: ACMfellowTuringAll, paperCount: 339214, Has-abstract count: 271798, Has-abstract ratio: 0.8012582027864416
+	baseTopicCount: 503, startTopicSize: 49[2024-01-11 20:51:41,178]: field: ACMfellowTuringAll, paperCount: 339214, Has-abstract count: 271798, Has-abstract ratio: 0.8012582027864416[2024-01-11 20:55:51,891]: field: ACMfellowTuringAll, paperCount: 339214, Has-abstract count: 271798, Has-abstract ratio: 0.8012582027864416
+[2024-01-11 20:55:51,891]: 	baseTopicCount: 503, startTopicSize: 10
+[2024-01-11 20:57:45,255]: field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+[2024-01-11 20:57:45,255]: 	baseTopicCount: 402, startTopicSize: 114
+[2024-01-12 09:23:27,436]: field: ACMfellowTuringAll, paperCount: 169108, Has-abstract count: 137431, Has-abstract ratio: 0.8126818364595406
+[2024-01-12 09:23:27,437]: 	baseTopicCount: 452, startTopicSize: 5
+[2024-01-12 09:25:04,823]: field: ACMfellowTuringAll, paperCount: 169108, Has-abstract count: 137431, Has-abstract ratio: 0.8126818364595406
+[2024-01-12 09:25:04,823]: 	baseTopicCount: 407, startTopicSize: 7
+[2024-01-12 15:58:59,206]: field: ACMfellowTuring, paperCount: 335175, Has-abstract count: 270987, Has-abstract ratio: 0.8084940702618035
+[2024-01-12 15:58:59,206]: 	baseTopicCount: 110, startTopicSize: 226
+[2024-01-12 22:56:13,301]: 	topicSize: 206, finalTopicCount: 107, baseTopicCount: 110
+[2024-01-14 13:51:35,167]: field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+[2024-01-14 13:51:35,168]: 	baseTopicCount: 402, startTopicSize: 114
+[2024-01-15 14:36:14,220]: field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+[2024-01-15 14:36:14,221]: 	baseTopicCount: 402, startTopicSize: 114
+[2024-01-15 14:42:17,300]: field: ACMfellowTuring, paperCount: 335175, Has-abstract count: 270987, Has-abstract ratio: 0.8084940702618035
+[2024-01-15 14:42:17,300]: 	baseTopicCount: 503, startTopicSize: 10
+[2024-01-16 09:27:13,438]: field: ACMfellowTuring, paperCount: 335175, Has-abstract count: 270987, Has-abstract ratio: 0.8084940702618035
+[2024-01-16 09:27:13,439]: 	baseTopicCount: 503, startTopicSize: 10
+[2024-01-16 13:37:31,691]: field: ACMfellowTuring, paperCount: 335175, Has-abstract count: 270987, Has-abstract ratio: 0.8084940702618035
+[2024-01-16 13:37:31,692]: 	baseTopicCount: 503, startTopicSize: 49
+[2024-01-18 16:17:39,579]: field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+[2024-01-18 16:17:39,580]: 	baseTopicCount: 402, startTopicSize: 266
+[2024-01-21 23:54:53,565]: 	topicSize: 383, finalTopicCount: 384, baseTopicCount: 402
+[2024-01-22 16:18:20,474]: field: ACMfellowTuring, paperCount: 335175, Has-abstract count: 270987, Has-abstract ratio: 0.8084940702618035
+[2024-01-22 16:18:20,474]: 	baseTopicCount: 503, startTopicSize: 49
+[2024-01-22 16:28:27,790]: field: ACMfellowTuring, paperCount: 335175, Has-abstract count: 270987, Has-abstract ratio: 0.8084940702618035
+[2024-01-22 16:28:27,790]: 	baseTopicCount: 503, startTopicSize: 49
+[2024-01-23 18:28:03,795]: 	topicSize: 40, finalTopicCount: 481, baseTopicCount: 503
+[2024-01-24 05:35:49,219]: field: AI, paperCount: 2476497, Has-abstract count: 2138135, Has-abstract ratio: 0.8633707208205784
+[2024-01-24 05:35:49,233]: 	baseTopicCount: 402, startTopicSize: 266
+[2024-03-12 22:18:30,536]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-12 22:18:30,540]: 	baseTopicCount: 140, startTopicSize: 372
+[2024-03-13 11:29:33,530]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-13 11:29:33,534]: 	baseTopicCount: 140, startTopicSize: 372
+[2024-03-13 11:46:07,369]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-13 11:46:07,369]: 	baseTopicCount: 140, startTopicSize: 372
+[2024-03-13 11:47:08,522]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-13 11:47:08,522]: 	baseTopicCount: 140, startTopicSize: 372
+[2024-03-14 11:48:03,515]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-14 11:48:03,515]: 	baseTopicCount: 140, startTopicSize: 372
+[2024-03-15 15:52:01,288]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-15 15:52:01,289]: 	baseTopicCount: 422, startTopicSize: 124
+[2024-03-16 15:07:28,561]: 	topicSize: 124, finalTopicCount: 420, baseTopicCount: 422
+[2024-03-20 22:09:25,750]: field: fellowVSNon, paperCount: 923490, Has-abstract count: 735857, Has-abstract ratio: 0.7968218388937617
+[2024-03-20 22:09:25,754]: 	baseTopicCount: 422, startTopicSize: 124
+[2024-03-24 20:46:49,903]: field: Security, paperCount: 172497, Has-abstract count: 150244, Has-abstract ratio: 0.8709948578815864
+[2024-03-24 20:46:49,906]: 	baseTopicCount: 93, startTopicSize: 155
+[2024-03-24 21:41:45,807]: field: Security, paperCount: 172497, Has-abstract count: 150244, Has-abstract ratio: 0.8709948578815864
+[2024-03-24 21:41:45,807]: 	baseTopicCount: 93, startTopicSize: 155
+[2024-03-24 23:35:10,742]: 	topicSize: 214, finalTopicCount: 91, baseTopicCount: 93
+[2024-03-24 23:35:17,431]: field: Library, paperCount: 1970, Has-abstract count: 1244, Has-abstract ratio: 0.6314720812182741
+[2024-03-24 23:35:31,142]: field: CA, paperCount: 543558, Has-abstract count: 493367, Has-abstract ratio: 0.9076621078155414
+[2024-03-24 23:35:31,142]: 	baseTopicCount: 128, startTopicSize: 308
+[2024-03-25 12:27:17,142]: 	topicSize: 423, finalTopicCount: 125, baseTopicCount: 128
+[2024-03-26 15:02:45,620]: field: Library, paperCount: 1970, Has-abstract count: 1244, Has-abstract ratio: 0.6314720812182741
+[2024-03-26 15:03:09,307]: field: Library, paperCount: 1970, Has-abstract count: 1244, Has-abstract ratio: 0.6314720812182741
+[2024-03-26 15:06:35,398]: field: Library, paperCount: 1970, Has-abstract count: 1244, Has-abstract ratio: 0.6314720812182741
+[2024-03-26 15:06:56,143]: field: Library, paperCount: 1970, Has-abstract count: 1244, Has-abstract ratio: 0.6314720812182741
+[2024-05-16 17:08:26,529]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-16 17:08:26,529]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-16 20:50:37,180]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-16 20:50:37,181]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-17 19:04:46,573]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-17 19:04:46,577]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-17 22:45:45,778]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-17 22:45:45,778]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-17 22:47:12,583]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-17 22:47:12,583]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-18 12:12:40,939]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-18 12:12:40,939]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-18 12:13:57,184]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-18 12:13:57,184]: 	baseTopicCount: 272, startTopicSize: 172
+[2024-05-18 21:36:31,773]: 	topicSize: 172, finalTopicCount: 261, baseTopicCount: 272
+[2024-05-19 15:36:27,929]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-19 15:36:27,930]: 	baseTopicCount: 612, startTopicSize: 76
+[2024-05-21 07:12:57,466]: 	topicSize: 76, finalTopicCount: 584, baseTopicCount: 612
+[2024-05-21 09:53:08,287]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-21 09:53:08,287]: 	baseTopicCount: 54, startTopicSize: 864
+[2024-05-21 10:03:02,899]: field: fellows, paperCount: 743004, Has-abstract count: 626266, Has-abstract ratio: 0.8428837529811414
+[2024-05-21 10:03:02,899]: 	baseTopicCount: 108, startTopicSize: 432
+[2024-05-21 11:21:00,488]: field: fellows, paperCount: 545020, Has-abstract count: 464073, Has-abstract ratio: 0.8514788448130344
+[2024-05-21 11:21:00,488]: 	baseTopicCount: 101, startTopicSize: 374
+[2024-05-21 15:19:26,490]: field: fellows, paperCount: 545020, Has-abstract count: 464073, Has-abstract ratio: 0.8514788448130344
+[2024-05-21 15:19:26,490]: 	baseTopicCount: 101, startTopicSize: 187
+[2024-05-22 17:01:19,304]: field: fellows, paperCount: 358397, Has-abstract count: 302357, Has-abstract ratio: 0.8436370840157702
+[2024-05-22 17:01:19,304]: 	baseTopicCount: 91, startTopicSize: 150
+[2024-05-22 17:01:41,649]: field: fellows, paperCount: 358397, Has-abstract count: 302357, Has-abstract ratio: 0.8436370840157702
+[2024-05-22 17:01:41,649]: 	baseTopicCount: 114, startTopicSize: 120
+[2024-05-22 17:01:59,182]: field: fellows, paperCount: 358397, Has-abstract count: 302357, Has-abstract ratio: 0.8436370840157702
+[2024-05-22 17:01:59,183]: 	baseTopicCount: 114, startTopicSize: 240
+[2024-05-22 18:15:10,838]: field: fellows, paperCount: 358397, Has-abstract count: 302357, Has-abstract ratio: 0.8436370840157702
+[2024-05-22 18:15:10,838]: 	baseTopicCount: 114, startTopicSize: 240
+[2024-05-22 21:44:49,133]: 	topicSize: 247, finalTopicCount: 111, baseTopicCount: 114
+[2024-05-27 11:23:37,723]: field: fellows, paperCount: 491414, Has-abstract count: 413246, Has-abstract ratio: 0.8409324927657739
+[2024-05-27 11:23:37,724]: 	baseTopicCount: 123, startTopicSize: 282
+[2024-05-27 11:24:53,589]: field: fellows, paperCount: 491414, Has-abstract count: 413246, Has-abstract ratio: 0.8409324927657739
+[2024-05-27 11:24:53,589]: 	baseTopicCount: 98, startTopicSize: 352
+[2024-05-27 11:25:21,220]: field: fellows, paperCount: 491414, Has-abstract count: 413246, Has-abstract ratio: 0.8409324927657739
+[2024-05-27 11:25:21,221]: 	baseTopicCount: 123, startTopicSize: 282
+[2024-05-27 16:57:37,276]: 	topicSize: 332, finalTopicCount: 123, baseTopicCount: 123
+[2024-06-01 23:47:28,081]: field: fellowV3, paperCount: 512868, Has-abstract count: 427768, Has-abstract ratio: 0.8340703650841932
+[2024-06-01 23:47:28,081]: 	baseTopicCount: 124, startTopicSize: 287
+[2024-06-02 04:50:37,425]: 	topicSize: 287, finalTopicCount: 119, baseTopicCount: 124

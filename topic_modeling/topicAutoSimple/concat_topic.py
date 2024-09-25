@@ -13,9 +13,11 @@ directory = sys.path[0] + "/output/" + field
 df_topic = pd.read_csv(os.path.join(directory, "topic_count_name.csv"), sep=',')
 df_location = pd.read_csv(os.path.join(directory, "topic_location.csv"), sep=',')
 df = pd.concat([df_topic, df_location], axis=1)
-print(df)
+# print(df)
 topic1 = df.values.tolist()
-with open(os.path.join(directory, "topic_word_prob.json"), 'r') as f:
+
+# 0715: 更改不再进行manual和filter，topic_word_prob
+with open(os.path.join(directory, "topic_word_prob_merged.json"), 'r') as f:
     topic2 = json.load(f)
 
 lst = []

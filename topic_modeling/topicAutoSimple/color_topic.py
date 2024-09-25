@@ -19,8 +19,8 @@ def angle(x, y):
 df = pd.read_csv(os.path.join(directory, "topic.csv"), sep=',')
 df["Topic"].astype(int)
 df["Count"].astype(int)
-df["Name"] = df["Name"].str.replace("^\d+_\s*", '')
-print(df)
+df["Name"] = df["Name"].str.replace(r"^\d+_\s*", '', regex=True)
+# print(df)
 
 data = df.values.tolist()
 h = [angle(float(loc[3]), float(loc[4])) for loc in data]

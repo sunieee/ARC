@@ -1,0 +1,10 @@
+results/
+topicAll/
+topicAuto/
+results/
+topicTop/
+topicAutoSimple/model/*
+topicAutoSimple/output/*
+topicAutoSimple/src/*
+topicAutoSimple/backup
+topicAutoSimple/version/*
