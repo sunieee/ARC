@@ -110,9 +110,9 @@ def read_papers(fields, parent=None):
         fieldID, fieldName, paperCount = get_field(field)
         print(f'read papers from field: {field}, {fieldID}, {fieldName}, {paperCount}')
         if paperCount < 10000:
-            db_data = pd.read_sql_query(f'select paperID from papers_field where fieldID=\'{fieldID}\';', engine)['paperID'].tolist()
+            db_data = pd.read_sql_query(f'select paperID from papers_field where fieldID=\'{fieldID}\' and score>=0.2;', engine)['paperID'].tolist()
         else:
-            group_num = paperCount // GROUP_SIZE + 3
+            group_num = paperCount // GROUP_SIZE + 1
             pbar = tqdm(total=group_num)
             print(f'filedID: {fieldID}, paperCount: {paperCount}, group_num: {group_num}')
             with concurrent.futures.ThreadPoolExecutor(max_workers=multiproces_num) as executor:
