@@ -15,6 +15,7 @@ else:
     authorIDs = set(top_authors['authorID'].tolist())
 
 path_to_mapping = f"out/{field}/csv"
+databaseMAG = os.environ.get('database', 'MACG')
 
 # 直接从paper_reference表中筛选出自引的记录
 print('creating node & edges', datetime.now().strftime("%H:%M:%S"))
@@ -73,7 +74,7 @@ def getYear(pairs):
     paperID_str = ','.join([f'\'{x}\'' for x in paperIDs])
     conn, cursor = create_connection()
     # 从数据库中查询
-    sql = f"select paperID, year(PublicationDate) as year from MACG.papers where paperID in ({paperID_str})"
+    sql = f"select paperID, year(PublicationDate) as year from {databaseMAG}.papers where paperID in ({paperID_str})"
     cursor.execute(sql)
     results = cursor.fetchall()
     return dict(results)

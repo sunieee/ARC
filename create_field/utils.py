@@ -21,6 +21,10 @@ else:
     with open('yaml/config.yaml') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 field_info = config[database]
+
+# 2.0 版本的数据库
+database = database.replace('scigene', 'v2')
+print('field_info:', field_info)
 for t in field_info.get('meta', []):
     for k, v in t.items():
         field_info[k] = v

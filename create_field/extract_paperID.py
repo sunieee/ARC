@@ -8,14 +8,16 @@ import time
 import sqlalchemy
 import concurrent.futures
 import multiprocessing
-import datetime
+from datetime import datetime
 import json
 from utils import field, cursor, field_info
 from collections import defaultdict
 
 
+databaseMAG = os.environ.get('database', 'MACG')
 userpass = f'{os.environ.get("user")}:{os.environ.get("password")}'
-engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/MACG', pool_size=20)
+print(f'[extract_scigene_field] databaseMAG: {databaseMAG}, userpass: {userpass}')
+engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/{databaseMAG}', pool_size=20)
 GROUP_SIZE = 2000
 multiproces_num = 20
 paper_ids = set()
@@ -55,10 +57,10 @@ id2row = {row['ID']: row for row in journal_conference.to_records()}
 
 def get_paperID_batch(pair):
     fieldID, offset, ix, pbar, verbose = pair
-    engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/MACG')
+    engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/{databaseMAG}')
     sql_data = f'select paperID from papers_field where fieldID=\'{fieldID}\' LIMIT {GROUP_SIZE} OFFSET {offset};'
     # if verbose:
-    #     time = datetime.datetime.now().strftime('%H:%M:%S')
+    #     time = datetime.now().strftime('%H:%M:%S')
     #     print(f'* {time} ' + sql_data)
     db_data = pd.read_sql_query(sql_data, engine)['paperID'].tolist()
     engine.dispose()
@@ -74,13 +76,13 @@ def get_field(field):
     }
     try:
         fieldID = int(field)
-        cursor.execute(f"SELECT name, paperCount FROM MACG.field_of_study where fieldID='{fieldID}'")
+        cursor.execute(f"SELECT name, paperCount FROM {databaseMAG}.field_of_study where fieldID='{fieldID}'")
         result = cursor.fetchone()
         fieldName = result[0]
         paperCount = result[1]
     except:
         fieldName = field
-        cursor.execute(f"SELECT fieldID, paperCount  FROM MACG.field_of_study where name='{fieldName}'")
+        cursor.execute(f"SELECT fieldID, paperCount  FROM {databaseMAG}.field_of_study where name='{fieldName}'")
         result = cursor.fetchone()
         if result is not None:
             fieldID = result[0]
@@ -90,7 +92,7 @@ def get_field(field):
                 if k in field:
                     for _v in v:
                         fieldName = field.replace(k, _v)
-                        cursor.execute(f"SELECT fieldID, paperCount  FROM MACG.field_of_study where name='{fieldName}'")
+                        cursor.execute(f"SELECT fieldID, paperCount  FROM {databaseMAG}.field_of_study where name='{fieldName}'")
                         result = cursor.fetchone()
                         if result is not None:
                             fieldID = result[0]
@@ -106,6 +108,7 @@ def read_papers(fields, parent=None):
     for field in tqdm(fields):
         start_count = len(paper_ids)
         fieldID, fieldName, paperCount = get_field(field)
+        print(f'read papers from field: {field}, {fieldID}, {fieldName}, {paperCount}')
         if paperCount < 10000:
             db_data = pd.read_sql_query(f'select paperID from papers_field where fieldID=\'{fieldID}\';', engine)['paperID'].tolist()
         else:

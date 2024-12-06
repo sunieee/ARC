@@ -1,6 +1,6 @@
 import pandas as pd
 import pymysql
-import datetime
+from datetime import datetime
 import os
 from collections import defaultdict
 import math

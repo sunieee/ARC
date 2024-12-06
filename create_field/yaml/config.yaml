@@ -139,23 +139,8 @@ scigene_CG_field:
     - 1140059087
     - 2626018664
 
-
-scigene_AI_field:
-  field:
-    - Information retrieval
-    - Speech recognition
-    - Computer vision
-    - Multimedia
-    - Knowledge management
-    - Machine learning
-    - Data mining
-    - World Wide web
-    - Artificial intelligence
-    - Pattern recognition
-    - Natural language processing
-    - Data science
-
-scigene_AIFull_field:
+# v0 version
+scigene_AI0_field:
   field:
     - Information retrieval
     - Speech recognition
@@ -182,3 +167,43 @@ scigene_AIFull_field:
     - Pattern recognition
     - Natural language processing
     - Data science
+
+# v1 version: AI=AI1 + AI2 + AI3 + AI4
+scigene_AI1_field:
+  field:
+    - Information retrieval
+    - Speech recognition
+    - Computer vision
+    - Multimedia
+    - Knowledge management
+    - Machine learning
+    - Data mining
+    - World Wide web
+    - Artificial intelligence
+    - Pattern recognition
+    - Natural language processing
+    - Data science
+
+scigene_AI2_field:
+  children: 
+  - Artificial intelligence
+
+scigene_AI3_field:
+  children: 
+  - Machine Learning
+  - Data mining
+
+scigene_AI4_field:
+  journal:
+  - Artificial Intelligence
+  - IEEE Transactions on Pattern Analysis and Machine Intelligence
+  - International Journal of Computer Vision
+  - Journal of Machine Learning Research
+  conference:
+  - AAAI_AAAI Conference on Artificial Intelligence
+  - NeurIPS_Conference on Neural Information Processing Systems
+  - ACL_Annual Meeting of the Association for Computational Linguistics
+  - CVPR_IEEE/CVF Computer Vision and Pattern Recognition Conference
+  - ICCV_International Conference on Computer Vision
+  - ICML_International Conference on Machine Learning
+  - IJCAI_International Joint Conference on Artificial Intelligence

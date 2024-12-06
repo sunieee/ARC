@@ -4,9 +4,10 @@ import pandas as pd
 from datetime import datetime
 from tqdm import tqdm
 import multiprocessing
+import os
 
 # import all needed variable from utils
-from utils import *
+from utils import field, cursor, conn, engine, field_info, try_execute
 import sys
 
 args = sys.argv

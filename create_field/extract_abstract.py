@@ -17,7 +17,7 @@ if os.environ.get('scholar') == '1':
     from utils_scholar import *
 else:
     fellow = False
-    from utils import *
+    from utils import database, create_top, field, create_connection
 
     df_authors = pd.read_csv(f"out/{field}/csv/authors.csv")
     df_authors['authorID'] = df_authors['authorID'].astype(str)
@@ -68,17 +68,13 @@ df_authors['hIndex_field'] = df_authors['authorID'].apply(lambda authorID: autho
 df_authors.to_csv(f'out/{field}/csv/authors.csv', index=False)
 
 
-if not fellow:
+if fellow:
+    df_paper_author_filtered = df_paper_author[df_paper_author['authorID'].isin(authorIDs)]
+else:
     conn, cursor = create_connection(database)
     for authorID, h_index in tqdm(authorID2h_index.items()):
         cursor.execute(f"UPDATE authors_field SET hIndex_field = {h_index} WHERE authorID = '{authorID}'")
     conn.commit()
-
-###################################################################
-# 创建topAuthor
-if fellow:
-    df_paper_author_filtered = df_paper_author[df_paper_author['authorID'].isin(authorIDs)]
-else:
     _, _, _, df_paper_author_filtered, _ = create_top()
     
 
@@ -98,6 +94,17 @@ def extract_paper_abstract(pairs):
                             password=os.environ.get('password'),
                             db='MACG',
                             charset='utf8')
+    
+    combineOpenAlex = True
+    if combineOpenAlex:
+        conn1 = pymysql.connect(host='localhost',
+                                port=3306,
+                                user=os.environ.get('user'),
+                                password=os.environ.get('password'),
+                                db='openalex',
+                                charset='utf8')
+        cursor1 = conn1.cursor()
+        
     cursor = conn.cursor()
     _paperID2abstract = defaultdict(str)
 
@@ -112,6 +119,13 @@ def extract_paper_abstract(pairs):
     # 使用Python代码来组合结果
     for paperID, abstract in result:
         _paperID2abstract[paperID] = re.sub('\s+', ' ', abstract)
+        if combineOpenAlex and not abstract:
+            cursor1.execute(f"SELECT abstract FROM abstracts WHERE paperID = '{paperID}'")
+            result = cursor1.fetchone()
+            if result:
+                _paperID2abstract[paperID] = re.sub('\s+', ' ', result[0])
+            else:
+                _paperID2abstract[paperID] = ''
 
     cursor.close()
     conn.close()

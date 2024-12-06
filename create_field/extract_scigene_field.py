@@ -8,12 +8,13 @@ import time
 import sqlalchemy
 import concurrent.futures
 import multiprocessing
-import datetime
 import json
 from utils import field, execute, cursor, conn, engine, field_info, try_execute
 from datetime import datetime
 
+databaseMAG = os.environ.get('database', 'MACG')
 userpass = f'{os.environ.get("user")}:{os.environ.get("password")}'
+print(f'[extract_scigene_field] databaseMAG: {databaseMAG}, userpass: {userpass}')
 GROUP_SIZE = 2000
 multiproces_num = 20
 
@@ -25,14 +26,14 @@ papers = list(np.loadtxt(paper_path, dtype=str))
 # 从mysql中获取papers, paer_auther, paper_reference, authors四个表的field子数据，并保存到本地文件
 ####################################################################################
 
-def get_data_from_table_concurrent(table_name, key='paperID', data=papers):
-    print(f'# Getting {table_name}({key}) from MAG')
+def get_data_from_table_concurrent(table_name, key='paperID', data=papers, database=databaseMAG):
+    print(f'# Getting {table_name}({key}) from {database}', datetime.now().strftime('%H:%M:%S'))
     t = time.time()
     db = pd.DataFrame()
 
     def _query(pair):
         MAG_group, index, pbar = pair
-        engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/MACG')
+        engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/{database}')
         sql=f'''select * from {table_name} where '''\
               + key + ' in ('+','.join([f'\'{x}\'' for x in MAG_group])+')'
         # time = datetime.now().strftime('%H:%M:%S')
@@ -71,9 +72,17 @@ df_paper_author = get_data_from_table_concurrent('paper_author')
 authors=df_paper_author['authorID'].drop_duplicates().values
 df_paper_author.to_csv(f'out/{field}/csv/paper_author.csv',index=False)
 
-citing_db = get_data_from_table_concurrent('paper_reference', key='citingpaperID')
-cited_db = get_data_from_table_concurrent('paper_reference', key='citedpaperID')
-df_paper_reference = pd.concat([citing_db, cited_db])
+combineOpenAlex = True
+if combineOpenAlex:
+    citing_db = get_data_from_table_concurrent('paper_reference', key='citingpaperID', database='MACG')
+    citing_db1 = get_data_from_table_concurrent('paper_reference_no_duplicate', key='citingpaperID', database='openalex')
+    cited_db = get_data_from_table_concurrent('paper_reference', key='citedpaperID', database='MACG')
+    cited_db1 = get_data_from_table_concurrent('paper_reference_no_duplicate', key='citedpaperID', database='openalex')
+    df_paper_reference = pd.concat([citing_db, citing_db1, cited_db, cited_db1])
+else:
+    citing_db = get_data_from_table_concurrent('paper_reference', key='citingpaperID')
+    cited_db = get_data_from_table_concurrent('paper_reference', key='citedpaperID')
+    df_paper_reference = pd.concat([citing_db, cited_db])
 print('paper_reference original', df_paper_reference.shape)
 df_paper_reference=df_paper_reference.drop_duplicates()
 print('paper_reference drop_duplicates', df_paper_reference.shape)
@@ -116,47 +125,47 @@ df_authors.to_csv(f'out/{field}/csv/authors.csv',index=False)
 print('## uploading papers', datetime.now().strftime('%H:%M:%S'))
 # df_papers = pd.read_csv(f'out/{field}/csv/papers.csv')
 print(df_papers, df_papers.shape)
-df_papers.to_sql('papers_field',con=engine,if_exists='replace',index=False, dtype={"paperID": sqlalchemy.types.NVARCHAR(length=100),\
+df_papers.to_sql('papers',con=engine,if_exists='replace',index=False, dtype={"paperID": sqlalchemy.types.NVARCHAR(length=100),\
     "title": sqlalchemy.types.NVARCHAR(length=2000),"ConferenceID": sqlalchemy.types.NVARCHAR(length=15),"JournalID": sqlalchemy.types.NVARCHAR(length=15),\
         "rank":sqlalchemy.types.INTEGER(),"referenceCount":sqlalchemy.types.INTEGER(),"citationCount":sqlalchemy.types.INTEGER(),"PublicationDate":sqlalchemy.types.Date()})
 
 print('## uploading paper_author', datetime.now().strftime('%H:%M:%S'))
 # paper_author = pd.read_csv(f'out/{field}/csv/paper_author.csv')
 print(df_paper_author, df_paper_author.shape)
-df_paper_author.to_sql('paper_author_field',con=engine,if_exists='replace',index=False, dtype={"paperID": sqlalchemy.types.NVARCHAR(length=15),\
+df_paper_author.to_sql('paper_author',con=engine,if_exists='replace',index=False, dtype={"paperID": sqlalchemy.types.NVARCHAR(length=15),\
     "authorID": sqlalchemy.types.NVARCHAR(length=15),"authorOrder":sqlalchemy.types.INTEGER()})
 
 print('## uploading paper_reference', datetime.now().strftime('%H:%M:%S'))
 # df_paper_reference = pd.read_csv(f'out/{field}/csv/paper_reference.csv')
 print(df_paper_reference, df_paper_reference.shape)
-df_paper_reference.to_sql('paper_reference_field',con=engine,if_exists='replace',index=False, dtype={"citingpaperID": sqlalchemy.types.NVARCHAR(length=15),\
+df_paper_reference.to_sql('paper_reference',con=engine,if_exists='replace',index=False, dtype={"citingpaperID": sqlalchemy.types.NVARCHAR(length=15),\
     "citedpaperID": sqlalchemy.types.NVARCHAR(length=15)})
 
 print('## uploading authors', datetime.now().strftime('%H:%M:%S'))
 # authors = pd.read_csv(f'out/{field}/csv/authors.csv')
 print(df_authors, df_authors.shape)
-df_authors.to_sql('authors_field',con=engine,if_exists='replace',index=False, dtype={"authorID": sqlalchemy.types.NVARCHAR(length=15),\
+df_authors.to_sql('authors',con=engine,if_exists='replace',index=False, dtype={"authorID": sqlalchemy.types.NVARCHAR(length=15),\
     "name": sqlalchemy.types.NVARCHAR(length=999),"rank":sqlalchemy.types.INTEGER(),"PaperCount":sqlalchemy.types.INTEGER(),"CitationCount":sqlalchemy.types.INTEGER()})
 
 # add index
 print('## add index', datetime.now().strftime('%H:%M:%S'))
-execute('''ALTER TABLE papers_field ADD CONSTRAINT papers_field_pk PRIMARY KEY (paperID);
-alter table papers_field add index(citationCount);
-alter table paper_author_field add index(paperID);
-alter table paper_author_field add index(authorID);
-alter table paper_author_field add index(authorOrder);
-alter table authors_field add index(authorID);
-alter table authors_field add index(name);
-alter table paper_reference_field add index(citingpaperID);
-alter table paper_reference_field add index(citedpaperID);
-ALTER TABLE paper_reference_field ADD CONSTRAINT paper_reference_field_pk PRIMARY KEY (citingpaperID,citedpaperID);
+execute('''ALTER TABLE papers ADD CONSTRAINT papers_pk PRIMARY KEY (paperID);
+alter table papers add index(citationCount);
+alter table paper_author add index(paperID);
+alter table paper_author add index(authorID);
+alter table paper_author add index(authorOrder);
+alter table authors add index(authorID);
+alter table authors add index(name);
+alter table paper_reference add index(citingpaperID);
+alter table paper_reference add index(citedpaperID);
+ALTER TABLE paper_reference ADD CONSTRAINT paper_reference_pk PRIMARY KEY (citingpaperID,citedpaperID);
 ''')
        
 # 直接update abstract太慢了，后续使用多进程下载
 '''
-alter table papers_field ADD abstract mediumtext;
-update papers_field as P, MACG.abstracts as abs set P.abstract = abs.abstract where P.paperID = abs.paperID
+alter table papers ADD abstract mediumtext;
+update papers as P, {databaseMAG}.abstracts as abs set P.abstract = abs.abstract where P.paperID = abs.paperID
 
 -- delete abstract mediumtext
-ALTER TABLE papers_field DROP abstract;
+ALTER TABLE papers DROP abstract;
 '''

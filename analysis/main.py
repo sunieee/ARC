@@ -8,7 +8,7 @@ from collections import defaultdict
 import pandas as pd
 import multiprocessing
 import json
-import datetime
+from datetime import datetime
 from tqdm import tqdm
 import math
 
@@ -18,7 +18,7 @@ os.makedirs(f'out/{database}', exist_ok=True)
 df = pd.read_csv(f'../post_processing/out/{database}/top_field_authors.csv')
 df['authorID'] = df['authorID'].astype(str)
 authorID_list = df['authorID'].tolist()
-print('authorID_list:', len(authorID_list), datetime.datetime.now().strftime('%H:%M:%S'))
+print('authorID_list:', len(authorID_list), datetime.now().strftime('%H:%M:%S'))
 
 engine = create_engine(f"mysql+pymysql://root:root@localhost:3306/{database}?charset=utf8")
 

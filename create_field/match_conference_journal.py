@@ -15,7 +15,8 @@ from collections import defaultdict
 
 
 userpass = f'{os.environ.get("user")}:{os.environ.get("password")}'
-engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/MACG', pool_size=20)
+databaseMAG = os.environ.get('database', 'MACG')
+engine = create_engine(f'mysql+pymysql://{userpass}@192.168.0.140:3306/{databaseMAG}', pool_size=20)
 GROUP_SIZE = 2000
 multiproces_num = 20
 paper_ids = set()
@@ -33,7 +34,6 @@ if os.path.exists(paper_path):
 
 def split_string(full_string):
     # Split the string into words
-    print('original string', full_string)
     words = full_string.split()
     if len(words) == 1:
         return '', full_string
@@ -42,12 +42,16 @@ def split_string(full_string):
         abbr = first_word_parts[0].replace('_', ' ')
         name = first_word_parts[1] + ' ' + ' '.join(words[1:])
         return abbr, name
-    return full_string.split('_', 1)
+    
+    if '_' in full_string:
+        return full_string.split('_', 1)
+    return '', full_string
 
 
 journal_conference = pd.DataFrame(columns=['type', 'original', 'ID', 'name'])
 
-for journalID in field_info.get('journalID', []):
+for journalID in field_info.get('journalID', []) + field_info.get('JournalID', []):
+    print(journalID)
     sql_data = f'select name from journals where JournalID=\'{journalID}\';'
     journalName = pd.read_sql_query(sql_data, engine)['name'].tolist()[0]
     journal_conference.loc[len(journal_conference)] = {
@@ -105,7 +109,7 @@ for original in field_info.get('journal', []):
         }
 
 # conferenceIDs = set(field_info.get('conferenceID', []))
-for conferenceID in field_info.get('conferenceID', []):
+for conferenceID in field_info.get('conferenceID', []) + field_info.get('ConferenceID', []):
     sql_data = f'select abbreviation, name from conferences where ConferenceID=\'{conferenceID}\';'
     abbreviation, conferenceName = pd.read_sql_query(sql_data, engine).values[0]
     journal_conference.loc[len(journal_conference)] = {

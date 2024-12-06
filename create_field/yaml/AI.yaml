@@ -23,8 +23,8 @@ scigene_AI_field:
   journal:
   - Artificial Intelligence
   - IEEE Transactions on Pattern Analysis and Machine Intelligence
-  - International Journal of Computer Vision Springer
-  - Journal of Machine Learning Research MIT Press
+  - International Journal of Computer Vision
+  - Journal of Machine Learning Research
   conference:
   - AAAI_AAAI Conference on Artificial Intelligence
   - NeurIPS_Conference on Neural Information Processing Systems

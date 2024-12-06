@@ -1,6 +1,10 @@
 
 
-from utils import *
+from utils import field, cursor, conn, engine, field_info, try_execute, create_top
+import pandas as pd
+from datetime import datetime
+import json
+
 
 df_papers, df_authors, df_paper_author, df_paper_author_filtered, top_authors = create_top()
 path_to_mapping = f"out/{field}/csv"

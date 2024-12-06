@@ -13,6 +13,19 @@ import gensim
 from gensim.parsing.preprocessing import preprocess_string
 import multiprocessing
 from utils import field, cursor, conn, engine, NumpyEncoder, topN
+import pandas as pd
+import re
+from utils import topN
+
+
+finals = ['a','o','e','i','u','v','ai','ei','ui','ao','ou','iu','ie','ue','ve','an','en','in','un','vn','ang','eng','ing','ong','iang','uang','uan','ua','ian']
+initials = ['b','p','m','f','d','t','n','l','g','k','h','j','q','x','zh','ch','sh','r','z','c','s','y','w']
+pinyins = ['zhi','chi','shi','ri','zi','ci','si','yi','wu','yu','ye','yue','yuan','yin','yun','ying']
+for initial in initials:
+    for final in finals:
+        pinyin=initial+final
+        pinyins.append(pinyin)
+pinyins=set(pinyins)
 
 
 gensim.parsing.preprocessing.STOPWORDS = set()
@@ -24,13 +37,6 @@ def strip_short2(s, minsize=1):
     return " ".join(remove_short_tokens(s.split(), minsize))
 gensim.parsing.preprocessing.DEFAULT_FILTERS[6]=strip_short2
 del gensim.parsing.preprocessing.DEFAULT_FILTERS[-1]
-
-n1="Shrikanth S. Narayanan"
-n2="satoshi sekine"
-n3="Rose jeff"
-tb1=[n1,n2,n3]
-tb2=[n3,n2,n1]
-
 
 '''compare name1 and name2, return similarity'''
 def compare_name(n1,n2, levensimrate=0.7):
@@ -122,14 +128,6 @@ def dump_matchdict(path,matchdict):
 def parse_pinyin2(word):
     w=word
     output=[]
-    finals = ['a','o','e','i','u','v','ai','ei','ui','ao','ou','iu','ie','ue','ve','an','en','in','un','vn','ang','eng','ing','ong','iang','uang','uan','ua','ian']
-    initials = ['b','p','m','f','d','t','n','l','g','k','h','j','q','x','zh','ch','sh','r','z','c','s','y','w']
-    pinyins = ['zhi','chi','shi','ri','zi','ci','si','yi','wu','yu','ye','yue','yuan','yin','yun','ying']
-    for initial in initials:
-        for final in finals:
-            pinyin=initial+final
-            pinyins.append(pinyin)
-    pinyins=set(pinyins)
     flag_pinyin=True
     for i in range(1,3):
         for i in range(min(6,len(w)),1,-1):
@@ -152,7 +150,6 @@ def parse_pinyin2(word):
 def levenshtein_distance(s1, s2):
     if len(s1) > len(s2):
         s1, s2 = s2, s1
-
     distances = range(len(s1) + 1)
     for index2, char2 in enumerate(s2):
         new_distances = [index2 + 1]
@@ -181,15 +178,60 @@ def test():
         levenshtein_distance(s1, s2) # / max(len(s1), len(s2))
     print('time', time.time() - t)
 
-# 在融合作者时，我们只关心前3000人，后面的人不重要，节省计算量
-# 获取第3000人的hIndex0，并得到所有hIndex >= hIndex0的人
-# num = max(int(topN * 0.5), 3000)
-num = 5000
-# cursor.execute(f'select hIndex_field from authors_field order by hIndex_field desc limit 1 offset {num}')
-# hIndex0 = cursor.fetchone()[0]
-# print('MIN hIndex:', hIndex0)
-# assert hIndex0 > 0
-# df = pd.read_sql_query(f'select * from authors_field where hIndex_field >= {hIndex0}', engine)
+def compute_levenshtein(pair):
+    i, j = pair
+    return pair, levenshtein_distance(author_names[i], author_names[j]) / (author_names_len[i] + author_names_len[j])
+
+def process_group(group):
+    ix1, ix2 = group[0]
+    similarity = compare_name(author_names[ix1], author_names[ix2])
+    return {
+        'id1': author_ids[ix1],
+        'id2': author_ids[ix2],
+        'name1': author_names[ix1],
+        'name2': author_names[ix2],
+        'lev_dis': group[1],
+        'similarity': similarity
+    }
+
+
+def valid_word(word):
+    # 验证首字母大写，后续字母小写
+    return word[0].isupper() and word[1:].islower()
+
+# 验证拼音音节，深度优先搜索
+def valid_pinyins(word):
+    if word in pinyins:
+        return True
+    for i in range(1, len(word)):
+        if word[:i] in pinyins and valid_pinyins(word[i:]):
+            return True
+    return False
+
+# 判断是否为中文拼音名字
+def is_chinese_name(name):
+    """
+    判断名字是否可能为中文拼音名字。
+    规则：
+    - 名字由2-4个单词组成（姓和名）。
+    - 每个单词为合法拼音音节。
+    """
+    words = name.split()
+    if len(words) != 2:
+        return False
+    if not valid_word(words[1]) or not valid_word(words[0]):
+        return False
+    name0 = words[0].lower()
+    name1 = words[1].lower()
+    if not valid_pinyins(name1) or not valid_pinyins(name0):
+        return False
+    return True
+
+
+
+# 在融合作者时，我们只关心top_authors，后面的人不重要，节省计算量
+df_top = pd.read_csv(f'out/{field}/top_authors.csv')
+num = min(len(df_top), 10000)
 
 # 读取 CSV 文件
 df = pd.read_csv(f'out/{field}/csv/authors.csv')
@@ -208,7 +250,7 @@ print(df.head())
 
 '''
 (5984, 9)
-     authorID   rank               name  PaperCount  CitationCount  PaperCount_field  authorRank  CitationCount_field  hIndex_field
+    authorID   rank               name  PaperCount  CitationCount  PaperCount_field  authorRank  CitationCount_field  hIndex_field
 0  1166287365  14614    Dorian Liepmann         141           4527                12        4864                  606           NaN
 1  2032738043  13085  Peter Brusilovsky         523          19831                71         194                 1147          20.0
 2  2040206780  14993       Amy A. Gooch          52           2934                14        3642                  236           NaN
@@ -220,10 +262,6 @@ author_ids = df['authorID']
 author_names = df['name']
 author_names_len = [len(name) for name in author_names]
 lev_file = f'out/{field}/lev.json'
-
-def compute_levenshtein(pair):
-    i, j = pair
-    return pair, levenshtein_distance(author_names[i], author_names[j]) / (author_names_len[i] + author_names_len[j])
 
 # if os.path.exists(lev_file):
 #     with open (lev_file, 'r') as f:
@@ -269,17 +307,7 @@ with open(lev_file, 'w') as f:
 
 groups = pd.DataFrame(columns=['id1', 'id2', 'name1', 'name2', 'lev_dis', 'similarity'])
 
-def process_group(group):
-    ix1, ix2 = group[0]
-    similarity = compare_name(author_names[ix1], author_names[ix2])
-    return {
-        'id1': author_ids[ix1],
-        'id2': author_ids[ix2],
-        'name1': author_names[ix1],
-        'name2': author_names[ix2],
-        'lev_dis': group[1],
-        'similarity': similarity
-    }
+
 
 print(f'comparing names on {len(lev_lis)} pairs...(30s)')
 with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
@@ -291,4 +319,11 @@ for result in results:
 
 
 # groups.to_csv(f'out/{field}/groups.csv', encoding='UTF-8', index=False)
-groups[groups['similarity'] > 0.96].to_csv(f'out/{field}/match.csv', index=False)
+match = groups[groups['similarity'] > 0.96]
+match.to_csv(f'out/{field}/match.csv', index=False)
+
+# 删除 name1 是中文名字的行
+match = match[~match['name1'].apply(is_chinese_name)]
+match = match[~match['name2'].apply(is_chinese_name)]
+
+match.to_csv(f'out/{field}/match_modify.csv', index=False)

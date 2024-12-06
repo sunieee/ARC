@@ -9,7 +9,7 @@ echo "start scholar.sh"
 
 export user=root
 export password=root
-export field=fellowV3
+export field=fellowV5
 # export database=AI
 export scholar=1
 

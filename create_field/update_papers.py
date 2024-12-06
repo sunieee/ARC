@@ -13,11 +13,9 @@ import re
 
 
 field = os.environ.get('field')
-suffix = '_ARC' if field.count("acl_anthology") else '_field'
-database = f'scigene_{field}_field'
+database = f'v2_{field}_field'
 if os.environ.get('scholar') == '1':
-    suffix = ''
-    database = 'MACG'
+    database = os.environ.get('database', 'MACG')
 
 def create_connection(database):
     conn = pymysql.connect(host='localhost',
@@ -63,11 +61,11 @@ def extract_paper_authors(pairs):
 
     # 使用IN子句一次查询多个paperID
     paper_ids_str = ', '.join([f"'{x}'" for x in papers])
-    cursor.execute(f"""SELECT paper_author{suffix}.paperID, authors{suffix}.name
-                       FROM paper_author{suffix} 
-                       JOIN authors{suffix} ON paper_author{suffix}.authorID=authors{suffix}.authorID 
-                       WHERE paper_author{suffix}.paperID IN ({paper_ids_str})
-                       ORDER BY paper_author{suffix}.paperID, paper_author{suffix}.authorOrder;""")
+    cursor.execute(f"""SELECT paper_author.paperID, authors.name
+                       FROM paper_author
+                       JOIN authors ON paper_author.authorID=authors.authorID 
+                       WHERE paper_author.paperID IN ({paper_ids_str})
+                       ORDER BY paper_author.paperID, paper_author.authorOrder;""")
     result = cursor.fetchall()
 
     # 使用Python代码来组合结果
@@ -92,7 +90,7 @@ def extract_paper_venu(papers):
     conn, cursor = create_connection(database)
     _paperID2venue = {}
     for paperID in tqdm(papers):
-        cursor.execute(f"select ConferenceID, JournalID from papers{suffix} where paperID='{paperID}'")
+        cursor.execute(f"select ConferenceID, JournalID from papers where paperID='{paperID}'")
         result = cursor.fetchone()
         # print(result)
         venu = None
