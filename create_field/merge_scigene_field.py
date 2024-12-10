@@ -49,7 +49,13 @@ def merge_database(name):
 
     if upload:
         print('uploading to sql', df.head(), df.shape, datetime.now().strftime('%H:%M:%S'))
-        df.to_sql(name, con=engine,if_exists='replace',dtype=dtype_dic[name])
+        df.to_sql(
+            name=name, 
+            con=engine, 
+            if_exists='replace', 
+            dtype=dtype_dic[name], 
+            chunksize=1000  # 每次插入1000行
+        )
     return df
 
 df_papers = merge_database('papers')
@@ -98,7 +104,7 @@ df_authors['hIndex_field'] = 0
 
 df_authors.to_csv(f'out/{field}/csv/authors.csv',index=False)
 if upload:
-    df_authors.to_sql('authors_field',con=engine,if_exists='replace',index=False, dtype=dtype_dic['authors'])
+    df_authors.to_sql('authors_field',con=engine,if_exists='replace',index=False, dtype=dtype_dic['authors'], chunksize=1000)
     
     # add index
     print('## add index', datetime.now().strftime('%H:%M:%S'))
