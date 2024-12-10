@@ -18,7 +18,7 @@ scigene_AI_field:
   - Data science
   children: 
   - Machine Learning # 686w
-  - Data mining # 
+  - Data mining
   - Artificial intelligence
   journal:
   - Artificial Intelligence
