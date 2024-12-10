@@ -130,7 +130,7 @@ def read_papers(fields, parent=None):
             '#paper': len(db_data),
             '#accumulate': len(paper_ids),
             '#addition': len(paper_ids) - start_count,
-            'validRatio': (len(paper_ids) - start_count) / len(db_data)
+            'validRatio': (len(paper_ids) - start_count) / len(db_data) if len(db_data) else 0
         }
         if verbose:
             print(f'finish reading paperID on {fieldName}({fieldID}), #paper: {len(db_data)}, #accumulate: {len(paper_ids)}')

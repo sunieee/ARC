@@ -232,6 +232,7 @@ def build_top_author(pairs):
 
     for authorID in tqdm(authorID_list):
         if os.path.exists(f'out/{field}/papers_raw/{authorID}.csv'):
+            print(f'## {authorID} already exists!')
             continue
         print('## ' + authorID)
 
@@ -266,10 +267,14 @@ def build_top_author(pairs):
 
 if split_count == 0:
     multiprocess_num = multiprocessing.cpu_count()
+    if field == 'AI':
+        multiprocess_num = 12
     with multiprocessing.Pool(processes=multiprocess_num) as pool:
         pool.map(build_top_author, [(authorID_list[i::multiprocess_num], f'{i}/{multiprocess_num}') for i in range(multiprocess_num)])
 else:
     build_top_author((authorID_list, f'{split}/{split_count}'))
 
+
+print('finish computing key papers', datetime.now().strftime("%H:%M:%S"))
 cursor.close()
 conn.close()

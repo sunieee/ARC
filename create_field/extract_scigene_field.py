@@ -94,7 +94,7 @@ df_authors.to_csv(f'out/{field}/csv/authors.csv',index=False)
 #######################################################################
 # update authors_field
 # 计算并添加作者在领域内的论文及引用数量，更新作者的引用总数信息
-# 通过计算每位作者的引用次数数据，根据 h-index 的定义，计算并更新了每位作者在特定领域内的 h-index 值
+# 通过计算每位作者的引用次数数据，注意hIndex在 extract_abstract.py 中计算
 #######################################################################
 print("## Step 1: Calculate Paper Count", datetime.now().strftime('%H:%M:%S'))
 paper_count = df_paper_author.groupby('authorID')['paperID'].count().reset_index(name='PaperCount_field')

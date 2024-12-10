@@ -9,16 +9,16 @@ scigene_AI_field:
   - Computer vision
   - Multimedia
   - Knowledge management
-  - Machine learning
+  - Machine learning  # 51w
   - Data mining
   - World Wide web
-  - Artificial intelligence
+  - Artificial intelligence # 441w, level 1
   - Pattern recognition
   - Natural language processing
   - Data science
   children: 
   - Machine Learning # 686w
-  - Data mining
+  - Data mining # 
   - Artificial intelligence
   journal:
   - Artificial Intelligence

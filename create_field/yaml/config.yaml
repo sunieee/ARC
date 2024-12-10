@@ -139,7 +139,7 @@ scigene_CG_field:
     - 1140059087
     - 2626018664
 
-# v0 version
+
 scigene_AI0_field:
   field:
     - Information retrieval
@@ -168,7 +168,6 @@ scigene_AI0_field:
     - Natural language processing
     - Data science
 
-# v1 version: AI=AI1 + AI2 + AI3 + AI4
 scigene_AI1_field:
   field:
     - Information retrieval

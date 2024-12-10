@@ -8,7 +8,6 @@ import time
 import sqlalchemy
 import concurrent.futures
 import multiprocessing
-import datetime
 import json
 from utils import field, cursor, field_info
 from collections import defaultdict

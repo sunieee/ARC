@@ -50,6 +50,7 @@ paperID2citationCount = pd.Series(df_papers.citationCount.values, index=df_paper
 print('paperID2citationCount:', len(paperID2citationCount), datetime.now().strftime("%H:%M:%S"))
 
 
+# 根据 h-index 的定义，计算并更新了每位作者在特定领域内的 h-index 值
 # 对 df_paper_author 按照 authorID 进行分组，并将 paperID 聚合为列表
 def calculate_h_index(paperIDs, paperID2citationCount):
     citations = [paperID2citationCount.get(paperID, 0) for paperID in paperIDs]

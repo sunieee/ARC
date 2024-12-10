@@ -50,7 +50,7 @@ def init_connection(database):
         cursor = conn.cursor()
         cursor.execute(f"SHOW DATABASES LIKE '{database}'")
         if not cursor.fetchone():
-            cursor.execute(f"CREATE DATABASE {database}")
+            cursor.execute(f"CREATE DATABASE {database}  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
         conn.commit()
 
         return create_connection(database)

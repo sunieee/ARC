@@ -13,10 +13,13 @@ from utils import field, execute, cursor, conn, engine, field_info, try_execute
 from datetime import datetime
 
 userpass = f'{os.environ.get("user")}:{os.environ.get("password")}'
+upload=True
 
-# folders = [x for x in os.listdir('out') if x.startswith(field)]
-folders = ['AI0', 'AI3', 'AI4', 'AI5']
-print('merge folders:', folders)
+field = os.environ.get('field')
+folders = [x for x in os.listdir('out') if x.startswith(field) and x != field]
+# folders = ['AI1', 'AI2', 'AI3', 'AI4']
+print('source folders:', folders)
+print('target folder:', field)
 
 dtype_dic = {
     'papers': {"paperID": sqlalchemy.types.NVARCHAR(length=100), "title": sqlalchemy.types.NVARCHAR(length=2000),"ConferenceID": sqlalchemy.types.NVARCHAR(length=15),"JournalID": sqlalchemy.types.NVARCHAR(length=15),\
@@ -26,32 +29,36 @@ dtype_dic = {
     'authors': {"authorID": sqlalchemy.types.NVARCHAR(length=15), "name": sqlalchemy.types.NVARCHAR(length=999),"rank":sqlalchemy.types.INTEGER(),"PaperCount":sqlalchemy.types.INTEGER(),"CitationCount":sqlalchemy.types.INTEGER()}
 }
 
-def merge_database(name, upload=True):
+def merge_database(name):
     df = []
-    print(f'## uploading {name}', datetime.now().strftime('%H:%M:%S'))
-    for folder in tqdm(folders):
-        t = pd.read_csv(f'out/{folder}/csv/{name}.csv')
-        # 删除所有 'Unnamed' 开头的列
-        t = t.loc[:, ~t.columns.str.contains('^Unnamed')]
-        df.append(t)
-    
-    df = pd.concat(df)
-    print('dropping duplicates', df.head(), df.shape, datetime.now().strftime('%H:%M:%S'))
-    df.drop_duplicates(inplace=True)
-    df.to_csv(f'out/{field}/csv/{name}.csv', index=False)
+    if os.path.exists(f'out/{field}/csv/{name}.csv'):
+        print(f'## reading {name}', datetime.now().strftime('%H:%M:%S'))
+        df = pd.read_csv(f'out/{field}/csv/{name}.csv')
+    else:
+        print(f'## merging {name}', datetime.now().strftime('%H:%M:%S'))
+        for folder in tqdm(folders):
+            t = pd.read_csv(f'out/{folder}/csv/{name}.csv')
+            # 删除所有 'Unnamed' 开头的列
+            t = t.loc[:, ~t.columns.str.contains('^Unnamed')]
+            df.append(t)
+        
+        df = pd.concat(df)
+        print('dropping duplicates', df.head(), df.shape, datetime.now().strftime('%H:%M:%S'))
+        df.drop_duplicates(inplace=True)
+        df.to_csv(f'out/{field}/csv/{name}.csv', index=False)
 
     if upload:
         print('uploading to sql', df.head(), df.shape, datetime.now().strftime('%H:%M:%S'))
-        df.to_sql(f'{name}_field',con=engine,if_exists='replace',dtype=dtype_dic[name])
+        df.to_sql(name, con=engine,if_exists='replace',dtype=dtype_dic[name])
     return df
 
 df_papers = merge_database('papers')
 df_paper_author = merge_database('paper_author')
-df_authors = merge_database('authors', False)
+df_authors = merge_database('authors')
 
-df_papers = pd.read_csv(f'out/{field}/csv/papers.csv')
-df_paper_author = pd.read_csv(f'out/{field}/csv/paper_author.csv')
-df_authors = pd.read_csv(f'out/{field}/csv/authors.csv')
+# df_papers = pd.read_csv(f'out/{field}/csv/papers.csv')
+# df_paper_author = pd.read_csv(f'out/{field}/csv/paper_author.csv')
+# df_authors = pd.read_csv(f'out/{field}/csv/authors.csv')
 
 df_authors = df_authors[df_authors.columns.drop(list(df_authors.filter(regex='^PaperCount_field')))]
 df_authors = df_authors[df_authors.columns.drop(list(df_authors.filter(regex='^CitationCount_field')))]
@@ -90,24 +97,25 @@ df_authors['CitationCount_field'] = df_authors['CitationCount_field'].fillna(0)
 df_authors['hIndex_field'] = 0
 
 df_authors.to_csv(f'out/{field}/csv/authors.csv',index=False)
-df_authors.to_sql('authors_field',con=engine,if_exists='replace',index=False, dtype=dtype_dic['authors'])
+if upload:
+    df_authors.to_sql('authors_field',con=engine,if_exists='replace',index=False, dtype=dtype_dic['authors'])
     
-
-# add index
-print('## add index', datetime.now().strftime('%H:%M:%S'))
-execute('''ALTER TABLE papers_field ADD CONSTRAINT papers_field_pk PRIMARY KEY (paperID);
-alter table papers_field add index(citationCount);
-alter table paper_author_field add index(paperID);
-alter table paper_author_field add index(authorID);
-alter table paper_author_field add index(authorOrder);
-alter table authors_field add index(authorID);
-alter table authors_field add index(name);
-''')
-       
+    # add index
+    print('## add index', datetime.now().strftime('%H:%M:%S'))
+    execute('''ALTER TABLE papers_field ADD CONSTRAINT papers_field_pk PRIMARY KEY (paperID);
+    alter table papers_field add index(citationCount);
+    alter table paper_author_field add index(paperID);
+    alter table paper_author_field add index(authorID);
+    alter table paper_author_field add index(authorOrder);
+    alter table authors_field add index(authorID);
+    alter table authors_field add index(name);
+    ''')
+        
 
 merge_database('paper_reference')
 
-execute('''alter table paper_reference_field add index(citingpaperID);
-alter table paper_reference_field add index(citedpaperID);
-ALTER TABLE paper_reference_field ADD CONSTRAINT paper_reference_field_pk PRIMARY KEY (citingpaperID,citedpaperID);
-''')
+if upload:
+    execute('''alter table paper_reference_field add index(citingpaperID);
+    alter table paper_reference_field add index(citedpaperID);
+    ALTER TABLE paper_reference_field ADD CONSTRAINT paper_reference_field_pk PRIMARY KEY (citingpaperID,citedpaperID);
+    ''')

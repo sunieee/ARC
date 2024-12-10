@@ -326,4 +326,7 @@ match.to_csv(f'out/{field}/match.csv', index=False)
 match = match[~match['name1'].apply(is_chinese_name)]
 match = match[~match['name2'].apply(is_chinese_name)]
 
+if field == 'visualization':
+    # 添加一行： 2158935544,2317229737,Jarke J. van Wijk,J.J. van Wijk,0.16666666666666666,0.9090909090909091
+    match.loc[len(match)] = [2158935544, 2317229737, 'Jarke J. van Wijk', 'J.J. van Wijk', 0.16666666666666666, 0.9090909090909091]
 match.to_csv(f'out/{field}/match_modify.csv', index=False)
